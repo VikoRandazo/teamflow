@@ -1,0 +1,54 @@
+@import "../../styles/colorsPallete.scss";
+@import "../../styles/elements.scss";
+.Menu {
+  bottom: 0;
+  height: 10vh;
+  min-width: 100%;
+  @extend %flexRow;
+  justify-content: space-between;
+  align-items: center;
+  pointer-events: all;
+  padding: 1em 0;
+
+  & > hr {
+    height: 50%;
+    border: 1px solid rgba($colorAccent, 0.3);
+  }
+
+  & > a {
+    width: 25%;
+    height: 100%;
+
+
+    
+    & > .navItem {
+      @extend %flexCol;
+      align-items: center;
+      justify-content: center;
+      gap: 0.25em;
+      
+      & > svg {
+        color: rgba($colorPrimary, 1);
+      }
+      
+      & > p {
+        color: rgba($colorPrimary, 1);
+      }
+    }
+    
+    &.active {
+      & > .navItem > svg {
+        color: rgba($colorAccent, 1);
+      }
+
+      & > .navItem > p {
+        color: rgba($colorAccent, 1);
+      }
+    }
+  }
+
+}
+
+
+
+// select the active clas!!!!!!!!!!!!!!!!!

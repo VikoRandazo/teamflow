@@ -1,0 +1,102 @@
+@import "../../../styles/elements.scss";
+@import "../../../styles/placeholders.scss";
+@import "../../../styles/colorsPallete.scss";
+
+.Home {
+  @extend %flexCol;
+  align-items: flex-start;
+  justify-content: flex-end;
+  width: 100%;
+  height: 100%;
+
+  & > .body {
+    @extend %flexCol;
+    gap: 1em;
+    width: 100%;
+    overflow-x: hidden;
+    
+    & > .cards {
+      @extend %flexRow;
+      align-items: flex-start;
+      justify-content: flex-start;
+      gap: 1em;
+      overflow-x: auto;
+      overflow-y: hidden;
+      min-height:max-content;
+
+      .card {
+        min-height: 25vh;
+        width: 20vw;
+        padding: 0.5em;
+
+        .para {
+          width: 100%;
+          white-space: normal;
+          font-size: 0.875em;
+        }
+
+        svg {
+          color: rgba($colorPrimary, 1);
+        }
+      }
+    }
+
+    & > .recommendations {
+      width: 100%;
+      .title {
+        @extend %flexRow;
+        justify-content: space-between;
+      }
+
+      .applications {
+        @extend %flexCol;
+        gap: 1em;
+        width: 100%;
+        padding: 1em 0;
+
+        .applicant {
+          @extend %flexCol;
+          padding: 1em;
+          gap: 0.75em;
+          background-color: #fff;
+          border-radius: 1em;
+
+          .applicantHeader {
+            @extend %flexRow;
+            justify-content: space-between;
+
+            span {
+              color: rgba($colorPara, 0.5);
+            }
+
+            span > svg {
+              color: #FFD700;
+            }
+
+            .badge {
+              color: rgba($colorAccent, 1);
+            }
+          }
+
+          .applicantBody {
+            @extend %flexCol;
+            gap: 0.25em;
+
+            .applicantAddress {
+              @extend %flexRow;
+              gap: 0.25em;
+              color: rgba($colorPara, 0.5);
+              font-size: 0.875em;
+            }
+
+            .downloadCV {
+              @extend %flexRow;
+              justify-content: space-between;
+              font-size: 0.875em;
+            }
+          }
+        }
+      }
+    }
+  }
+}

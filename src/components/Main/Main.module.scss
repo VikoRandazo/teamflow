@@ -1,0 +1,8 @@
+@import "../../styles/placeholders.scss";
+@import "../../styles/colorsPallete.scss";
+
+.Main {
+  height: 100%;
+  max-width: 100vw;
+  background-color: $colorBackgroundModal;
+}

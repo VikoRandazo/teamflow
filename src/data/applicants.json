@@ -1,0 +1,109 @@
+{
+  "employees": [
+    {
+      "id": 18001,
+      "applicantName": "Jane Doe",
+      "contactInformation": {
+        "email": "jane.doe@example.com",
+        "phone": "123-456-7891",
+        "address": {
+          "city": "Los Angeles",
+          "street": "Sunset Blvd",
+          "number": "456",
+          "zip": "90028"
+        },
+        "age": 28
+      },
+      "positionAppliedFor": "Web Developer",
+      "resumeCV": "",
+      "workExperience": {
+        "jobTitle": "Front-end Developer",
+        "experience": 5
+      }
+    },
+    {
+      "id": 18002,
+      "applicantName": "Michael Brown",
+      "contactInformation": {
+        "email": "michael.brown@example.com",
+        "phone": "123-456-7892",
+        "address": {
+          "city": "New York",
+          "street": "Broadway",
+          "number": "789",
+          "zip": "10001"
+        },
+        "age": 32
+      },
+      "positionAppliedFor": "Software Engineer",
+      "resumeCV": "",
+      "workExperience": {
+        "jobTitle": "Backend Developer",
+        "experience": 5
+      }
+    },
+    {
+      "id": 18003,
+      "applicantName": "Emily Johnson",
+      "contactInformation": {
+        "email": "emily.johnson@example.com",
+        "phone": "123-456-7893",
+        "address": {
+          "city": "Chicago",
+          "street": "Michigan Ave",
+          "number": "1012",
+          "zip": "60611"
+        },
+        "age": 26
+      },
+      "positionAppliedFor": "Data Analyst",
+      "resumeCV": "",
+      "workExperience": {
+        "jobTitle": "Junior Data Analyst",
+        "experience": 5
+      }
+    },
+    {
+      "id": 18004,
+      "applicantName": "David Martinez",
+      "contactInformation": {
+        "email": "david.martinez@example.com",
+        "phone": "123-456-7894",
+        "address": {
+          "city": "San Francisco",
+          "street": "Market St",
+          "number": "1350",
+          "zip": "94102"
+        },
+        "age": 35
+      },
+      "positionAppliedFor": "DevOps Engineer",
+      "resumeCV": "",
+      "workExperience": {
+        "jobTitle": "System Administrator",
+        "experience": 5
+      }
+    },
+    {
+      "id": 18005,
+      "applicantName": "Sophia Lee",
+      "contactInformation": {
+        "email": "sophia.lee@example.com",
+        "phone": "123-456-7895",
+        "address": {
+          "city": "Seattle",
+          "street": "Pine St",
+          "number": "1690",
+          "zip": "98101"
+        },
+        "age": 29
+      },
+      "positionAppliedFor": "UX/UI Designer",
+      "resumeCV": "",
+      "workExperience": {
+        "jobTitle": "Graphic Designer",
+        "experience": 5
+      }
+    }
+  ]
+}
