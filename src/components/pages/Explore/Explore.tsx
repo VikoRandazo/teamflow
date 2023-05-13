@@ -5,7 +5,9 @@ interface ExploreProps {}
 
 const Explore: FC<ExploreProps> = () => (
   <div className={styles.Explore}>
-    Explore Component
+<div className={styles.search}>
+  <input type="text" placeholder='search'/>
+</div>
   </div>
 );
 

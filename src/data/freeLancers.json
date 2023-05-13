@@ -1,0 +1,114 @@
+{
+  "freelancers": [
+    {
+      "id": 38001,
+      "applicantName": "Eve Thompson",
+      "hourlyPayment": 32,
+      "contactInformation": {
+        "email": "eve.thompson@example.com",
+        "phone": "123-456-7896",
+        "address": {
+          "city": "Miami",
+          "street": "Biscayne Blvd",
+          "number": "678",
+          "zip": "33132"
+        },
+        "age": 35
+      },
+      "positionAppliedFor": "Product Manager",
+      "resumeCV": "",
+      "workExperience": {
+        "jobTitle": "Product Owner",
+        "experience": 8
+      }
+    },
+    {
+      "id": 38002,
+      "applicantName": "Frank Garcia",
+      "hourlyPayment": 38,
+      "contactInformation": {
+        "email": "frank.garcia@example.com",
+        "phone": "123-456-7897",
+        "address": {
+          "city": "Houston",
+          "street": "Main St",
+          "number": "135",
+          "zip": "77002"
+        },
+        "age": 45
+      },
+      "positionAppliedFor": "DevOps Engineer",
+      "resumeCV": "",
+      "workExperience": {
+        "jobTitle": "System Administrator",
+        "experience": 12
+      }
+    },
+    {
+      "id": 38003,
+      "applicantName": "Grace Martinez",
+      "hourlyPayment": 30,
+      "contactInformation": {
+        "email": "grace.martinez@example.com",
+        "phone": "123-456-7898",
+        "address": {
+          "city": "Boston",
+          "street": "Newbury St",
+          "number": "890",
+          "zip": "02116"
+        },
+        "age": 31
+      },
+      "positionAppliedFor": "Digital Marketing Specialist",
+      "resumeCV": "",
+      "workExperience": {
+        "jobTitle": "Marketing Coordinator",
+        "experience": 6
+      }
+    },
+    {
+      "id": 38004,
+      "applicantName": "Harry Davis",
+      "hourlyPayment": 26,
+      "contactInformation": {
+        "email": "harry.davis@example.com",
+        "phone": "123-456-7899",
+        "address": {
+          "city": "Denver",
+          "street": "Larimer St",
+          "number": "654",
+          "zip": "80202"
+        },
+        "age": 25
+      },
+      "positionAppliedFor": "Content Writer",
+      "resumeCV": "",
+      "workExperience": {
+        "jobTitle": "Copywriter",
+        "experience": 4
+      }
+    },
+    {
+      "id": 38005,
+      "applicantName": "Ivy Wilson",
+      "hourlyPayment": 42,
+      "contactInformation": {
+        "email": "ivy.wilson@example.com",
+        "phone": "123-456-7800",
+        "address": {
+          "city": "Washington D.C.",
+          "street": "Pennsylvania Ave",
+          "number": "987",
+          "zip": "20004"
+        },
+        "age": 38
+      },
+      "positionAppliedFor": "Mobile App Developer",
+      "resumeCV": "",
+      "workExperience": {
+        "jobTitle": "Android Developer",
+        "experience": 9
+      }
+    }
+  ]
+}

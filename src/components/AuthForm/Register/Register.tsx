@@ -5,7 +5,7 @@ import { useDispatch } from "react-redux";
 import { User } from "../../../models/User";
 import { authSlice } from "../../../slices/auth";
 import { register } from "../../../auth/auth";
-import { Link, NavLink, Navigate, useNavigate } from "react-router-dom";
+import {useNavigate } from "react-router-dom";
 
 interface RegisterProps {}
 
@@ -54,7 +54,7 @@ const Register: FC<RegisterProps> = () => {
         </div>
       </div>
       <div className={styles.body}>
-        <h5>Sign up for free</h5>
+        <h4>Sign up for free</h4>
         <div className={styles.inputs}>
           <label className={styles.userInput} htmlFor="firstName">
             First Name*

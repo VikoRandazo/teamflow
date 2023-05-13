@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { StoreRootTypes } from "../../store";
 import { authActions } from "../../slices/auth";
 import Home from "../pages/Home/Home";
+import Header from "./Header/Header";
 interface LayoutProps {}
 
 const Layout: FC<LayoutProps> = () => {
@@ -16,13 +17,24 @@ const Layout: FC<LayoutProps> = () => {
   return (
     <div className={styles.Layout}>
       <div
+        className={styles.header}
+        style={isLoggedIn ? { height: "8vh" } : { height: "0vh" }}
+      >
+        {isLoggedIn ? <Header /> : null}
+      </div>
+      <div
         className={styles.Main}
-        style={isLoggedIn ? { height: "90vh" } :{ height: "100vh" }  }
+        style={isLoggedIn ? { height: "84vh" } : { height: "100vh" }}
       >
         <Main />
       </div>
-      {isLoggedIn ? <Menu /> : null}
-      </div> 
+      <div
+        className={styles.Menu}
+        style={isLoggedIn ? { height: "8vh" } : { height: "0vh" }}
+      >
+        {isLoggedIn ? <Menu /> : null}
+      </div>
+    </div>
   );
 };
 

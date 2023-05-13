@@ -32,7 +32,8 @@ const Login: FC<LoginProps> = () => {
 
   const handleLogin = async (e: React.MouseEvent<HTMLButtonElement>) => {
     const token = await login(credentials);
-    if (token) {
+    const savedToken = localStorage.getItem("jwt")
+    if (savedToken || token) {
       console.log(token);
       dispatch(authSlice.actions.setToken(token));
       dispatch(authSlice.actions.setUser(credentials.username));
@@ -52,7 +53,7 @@ const Login: FC<LoginProps> = () => {
         </div>
       </div>
       <div className={styles.body}>
-        <h5>Sign into your account</h5>
+        <h4>Sign into your account</h4>
         <div className={styles.inputs}>
           <label className={styles.userInput} htmlFor="username">
             Username*

@@ -3,25 +3,31 @@
 
 h1 {
   font-size: 2em;
+  color: $colorTitle;
 }
 h2 {
   font-size: 1.75em;
+  color: $colorTitle;
 }
 
 h3 {
   font-size: 1.5em;
+  color: $colorTitle;
 }
 
 h4 {
   font-size: 1.25em;
+  color: $colorTitleDark;
 }
 
 h5 {
   font-size: 1em;
+  color: $colorTitleDark;
 }
 
 h6 {
   font-size: 0.75em;
+  color: $colorTitleDark;
 }
 
 input {
@@ -29,9 +35,18 @@ input {
   padding: 1em;
   outline: none;
   border: none;
-  opacity: 0.7;
+  background-color: rgba($colorBackgroundModal, 100%);
+  color: $colorTitle;
   &::placeholder {
     opacity: 0.5;
+  }
+  &:focus {
+    border: 1px solid rgba($colorPrimary, 100%);;
+    
+    &::placeholder {
+      color: $colorTitle;
+      opacity: 0.8;
+    }
   }
 }
 
@@ -53,8 +68,8 @@ button {
   border: none;
   background: linear-gradient(
     90deg,
-    rgba($colorAccent, 60%),
-    rgba($colorAccent, 100%)
+    rgba($colorPrimary, 60%),
+    rgba($colorSecondary, 100%)
   );
   color: #fff;
 }
@@ -83,7 +98,7 @@ label {
   padding: 1em;
 
   & > svg {
-    font-size: 2.5em;
+    font-size: 3em;
     color: rgba($colorPrimary, 100%);
   }
 

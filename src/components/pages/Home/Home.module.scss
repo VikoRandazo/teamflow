@@ -3,18 +3,21 @@
 @import "../../../styles/colorsPallete.scss";
 
 .Home {
-  @extend %flexCol;
-  align-items: flex-start;
-  justify-content: flex-end;
   width: 100%;
   height: 100%;
 
   & > .body {
     @extend %flexCol;
+    justify-content: flex-start;
     gap: 1em;
     width: 100%;
-    overflow-x: hidden;
+    min-height: 100%;
     
+    & > h5 {
+      color: $colorTitle;
+    }
+
+
     & > .cards {
       @extend %flexRow;
       align-items: flex-start;
@@ -22,80 +25,68 @@
       gap: 1em;
       overflow-x: auto;
       overflow-y: hidden;
-      min-height:max-content;
+      min-height: 15vh;
+      width: 100%;
 
-      .card {
-        min-height: 25vh;
-        width: 20vw;
+      & > .card {
+        height: 100%;
+        width: 30vw;
         padding: 0.5em;
+        white-space: normal;
+        transition: all 0.2s ease;
 
-        .para {
-          width: 100%;
-          white-space: normal;
-          font-size: 0.875em;
-        }
-
-        svg {
-          color: rgba($colorPrimary, 1);
+        &.active {
+          width: 40vw;
+          background: linear-gradient(
+            180deg,
+            rgba($colorSecondary, 100%) 1%,
+            rgba($colorPrimary, 100%) 90%
+          );
+          & > svg,
+          p {
+            color: rgba(#fff, 1);
+            font-weight: 500;
+          }
         }
       }
-    }
 
+      .para {
+        width: 100%;
+        white-space: normal;
+        font-size: 0.75em;
+        pointer-events: none;
+        color: $colorTitle;
+      }
+
+      svg {
+        color: rgba($colorPrimary, 1);
+        pointer-events: none;
+      }
+    }
     & > .recommendations {
       width: 100%;
+      height: 100%;
+
+
       .title {
         @extend %flexRow;
         justify-content: space-between;
+        padding: 0.5em;
+        
+      & > h5 {
+        color: $colorTitle;
       }
 
+      & > span {
+        color: $colorTitle;
+      }
+      }
       .applications {
         @extend %flexCol;
-        gap: 1em;
         width: 100%;
-        padding: 1em 0;
-
-        .applicant {
-          @extend %flexCol;
-          padding: 1em;
-          gap: 0.75em;
-          background-color: #fff;
-          border-radius: 1em;
-
-          .applicantHeader {
-            @extend %flexRow;
-            justify-content: space-between;
-
-            span {
-              color: rgba($colorPara, 0.5);
-            }
-
-            span > svg {
-              color: #FFD700;
-            }
-
-            .badge {
-              color: rgba($colorAccent, 1);
-            }
-          }
-
-          .applicantBody {
-            @extend %flexCol;
-            gap: 0.25em;
-
-            .applicantAddress {
-              @extend %flexRow;
-              gap: 0.25em;
-              color: rgba($colorPara, 0.5);
-              font-size: 0.875em;
-            }
-
-            .downloadCV {
-              @extend %flexRow;
-              justify-content: space-between;
-              font-size: 0.875em;
-            }
-          }
-        }
+        height: 100%;
+        gap: 1em;
+        overflow-y: scroll;
       }
     }
   }

@@ -1,0 +1,43 @@
+@import "../../../styles/placeholders.scss";
+@import "../../../styles/colorsPallete.scss";
+@import "../../../styles/elements.scss";
+
+.Header {
+  height: 100%;
+  width: 100%;
+  @extend %flexRow;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5em 1em;
+  background-color: $colorBackgroundPage;
+
+  & > .logo {
+    height: 100%;
+    @extend %flexRow;
+    align-items: center;
+    justify-content: flex-end;
+
+    & > img {
+      height: 70%;
+    }
+  }
+
+  & > .icons {
+    height: 100%;
+    width: 30%;
+    @extend %flexRow;
+    align-items: center;
+    justify-content: flex-start;
+
+    & > .notifications {
+      @extend %flexRow;
+      align-items: center;
+      justify-content: center;
+
+      & > svg {
+        font-size: 1.25em;
+        color: $colorSecondary;
+      }
+    }
+  }
+}

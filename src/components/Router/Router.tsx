@@ -36,10 +36,10 @@ const Router: FC<RouterProps> = () => (
 
 
       {/* Defaultes */}
-      {/* Default authenticated */}
+      {/* Default un-authenticated */}
       <Route path={"/"} element={<Login />} />
 
-      {/* Default un-authenticated */}
+      {/* Default authenticated */}
       <Route path={"/default"} element={<Home />} />
     </Routes>
   </div>
