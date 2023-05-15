@@ -16,23 +16,33 @@
           border-radius: 1em;
           background-color: $colorCard;
   
-          .applicantHeader {
+          & > .applicantHeader {
             @extend %flexRow;
             justify-content: space-between;
-  
-            span {
+            align-items: center;
+            white-space: nowrap; 
+            background-color: $colorCard;
+      
+            & > span {
               color: rgba($colorPara, 0.5);
             }
-  
-            span > svg {
-              color: #FFD700;
+      
+            & > span > svg {
+              color: #ffd700;
             }
-  
+      
+            & > span > .heartSVG {
+              color: rgba($colorPrimary,0.5);
+              margin-left: 0.5em;
+            }
+      
             .badge {
               color: rgba($colorAccent, 1);
+              overflow-x:hidden;
+              text-overflow: ellipsis;
             }
           }
-  
+        
           .applicantBody {
             @extend %flexCol;
             gap: 0.25em;

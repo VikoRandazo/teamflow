@@ -1,12 +1,27 @@
+@import "../../../styles/elements.scss";
+@import "../../../styles/colorsPallete.scss";
+@import "../../../styles/placeholders.scss";
+
 .Explore {
-    height: 100%;
+  height: 100%;
+  width: 100%;
+  @extend %flexCol;
+  gap: 1em;
+
+  & > .search {
     width: 100%;
 
-    & > .search {
-        width: 100%;
-
-        & > input {
-            width: 100%;
-        }
+    & > input {
+      width: 100%;
     }
+  }
+
+  & > .filter {
+    @extend %flexRow;
+    gap: 0.5em;
+
+    & > .badge.active {
+        background: linear-gradient(140deg,rgba($colorPrimary, 100%)30%, rgba($colorSecondary, 100%)70%);
+    }
+  }
 }

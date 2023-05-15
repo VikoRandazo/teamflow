@@ -1,8 +1,8 @@
-{
-  "freelancers": [
+
+[
     {
       "id": 38001,
-      "applicantName": "Eve Thompson",
+      "name": "Eve Thompson",
       "hourlyPayment": 32,
       "contactInformation": {
         "email": "eve.thompson@example.com",
@@ -24,7 +24,7 @@
     },
     {
       "id": 38002,
-      "applicantName": "Frank Garcia",
+      "name": "Frank Garcia",
       "hourlyPayment": 38,
       "contactInformation": {
         "email": "frank.garcia@example.com",
@@ -46,7 +46,7 @@
     },
     {
       "id": 38003,
-      "applicantName": "Grace Martinez",
+      "name": "Grace Martinez",
       "hourlyPayment": 30,
       "contactInformation": {
         "email": "grace.martinez@example.com",
@@ -68,7 +68,7 @@
     },
     {
       "id": 38004,
-      "applicantName": "Harry Davis",
+      "name": "Harry Davis",
       "hourlyPayment": 26,
       "contactInformation": {
         "email": "harry.davis@example.com",
@@ -90,7 +90,7 @@
     },
     {
       "id": 38005,
-      "applicantName": "Ivy Wilson",
+      "name": "Ivy Wilson",
       "hourlyPayment": 42,
       "contactInformation": {
         "email": "ivy.wilson@example.com",
@@ -111,4 +111,4 @@
       }
     }
   ]
-}
+

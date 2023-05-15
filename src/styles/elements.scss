@@ -109,11 +109,17 @@ label {
 
 .badge {
   padding: 0.5em 2em;
-  border: 1px solid rgba($colorAccent, 40%);
-  background-color: rgba($colorAccent, 5%);
-  color: rgba($colorAccent, 100%);
+  border: 1px solid rgba($colorSecondary, 40%);
+  background-color: rgba($colorSecondary, 5%);
+  color: rgba($colorSecondary, 100%);
   border-radius: 0.5em;
   font-size: 0.75em;
+
+  &.active {
+    background-color: rgba($colorSecondary, 100%);
+    border: 1px solid transparent;
+    color: $colorTitle;
+  }
 }
 
 a {

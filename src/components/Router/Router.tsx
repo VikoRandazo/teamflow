@@ -10,7 +10,10 @@ import Employer from "../jobMarket/Employer/Employer";
 import Freelancer from "../jobMarket/Freelancer/Freelancer";
 import Profile from "../pages/Profile/Profile";
 import Favorites from "../pages/Favorites/Favorites";
-import Explore from "../pages/Explore/Explore";
+// import Explore from "../pages/Explore/Explore";
+import applicants from "../../data/applicants.json";
+import freelancers from "../../data/freeLancers.json";
+import jobOffers from "../../data/jobOffers.json";
 
 interface RouterProps {}
 
@@ -25,15 +28,68 @@ const Router: FC<RouterProps> = () => (
 
       {/* Pages */}
       <Route path={"/home"} element={<Home />} />
-      <Route path={"/explore"} element={<Explore />} />
+      {/* <Route path={"/explore"} element={<Explore />} /> */}
       <Route path={"/favorites"} element={<Favorites />} />
       <Route path={"/profile"} element={<Profile />} />
 
       {/* Job Market */}
-      <Route path={"/job"} element={<Job />} />
-      <Route path={"/employer"} element={<Employer />} />
-      <Route path={"/freelancer"} element={<Freelancer />} />
-
+      <Route
+        path={"/job"}
+        element={
+          <Job id={0}
+           position={""}
+            company={""}
+             location={""}
+             city={""}
+              description={""}
+               salary={""}
+                experience={""} />
+        }
+      />
+      <Route
+        path={"/employer"}
+        element={
+          <Employer
+            id={0}
+            name={""}
+            contactInformation={{
+              email: undefined,
+              phone: undefined,
+              address: {
+                city: "",
+                street: undefined,
+                number: undefined,
+                zip: undefined,
+              },
+              age: undefined,
+            }}
+            positionAppliedFor={""}
+            resumeCV={""}
+          />
+        }
+      />
+      <Route
+        path={"/freelancer"}
+        element={
+          <Freelancer
+            id={0}
+            name={""}
+            contactInformation={{
+              email: undefined,
+              phone: undefined,
+              address: {
+                city: "",
+                street: undefined,
+                number: undefined,
+                zip: undefined,
+              },
+              age: undefined,
+            }}
+            positionAppliedFor={""}
+            resumeCV={""}
+          />
+        }
+      />
 
       {/* Defaultes */}
       {/* Default un-authenticated */}
