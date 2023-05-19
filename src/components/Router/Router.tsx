@@ -5,15 +5,14 @@ import Register from "../AuthForm/Register/Register";
 import { Routes, Route } from "react-router-dom";
 import AuthForm from "../AuthForm/AuthForm";
 import Home from "../pages/Home/Home";
-import Job from "../jobMarket/Job/Job";
-import Employer from "../jobMarket/Employer/Employer";
+import JobOffer from "../jobMarket/JobOffer/JobOffer";
+import Applicant from "../jobMarket/Applicant/Applicant";
 import Freelancer from "../jobMarket/Freelancer/Freelancer";
 import Profile from "../pages/Profile/Profile";
 import Favorites from "../pages/Favorites/Favorites";
-// import Explore from "../pages/Explore/Explore";
-import applicants from "../../data/applicants.json";
-import freelancers from "../../data/freeLancers.json";
-import jobOffers from "../../data/jobOffers.json";
+import Explore from "../pages/Explore/Explore";
+
+import RegisterStep2 from "../AuthForm/Register/RegisterStep2/RegisterStep2";
 
 interface RouterProps {}
 
@@ -21,14 +20,14 @@ const Router: FC<RouterProps> = () => (
   <div className={styles.Router}>
     <Routes>
       {/* Auth */}
-
       <Route path={"/authForm"} element={<AuthForm />} />
       <Route path={"authForm/login"} element={<Login />} />
-      <Route path={"authForm/register"} element={<Register />} />
+      <Route path={"authForm/register/step1"} element={<Register />} />
+      <Route path={"authForm/register/step2"} element={<RegisterStep2 />} />
 
       {/* Pages */}
       <Route path={"/home"} element={<Home />} />
-      {/* <Route path={"/explore"} element={<Explore />} /> */}
+      <Route path={"/explore"} element={<Explore />} />
       <Route path={"/favorites"} element={<Favorites />} />
       <Route path={"/profile"} element={<Profile />} />
 
@@ -36,20 +35,22 @@ const Router: FC<RouterProps> = () => (
       <Route
         path={"/job"}
         element={
-          <Job id={0}
-           position={""}
+          <JobOffer
+            id={0}
+            position={""}
             company={""}
-             location={""}
-             city={""}
-              description={""}
-               salary={""}
-                experience={""} />
+            location={""}
+            city={""}
+            description={""}
+            salary={""}
+            experience={""}
+          />
         }
       />
       <Route
         path={"/employer"}
         element={
-          <Employer
+          <Applicant
             id={0}
             name={""}
             contactInformation={{

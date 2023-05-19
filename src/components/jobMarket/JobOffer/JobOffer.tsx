@@ -1,43 +1,50 @@
 import React, { FC } from "react";
-import styles from "./Job.module.scss";
+import styles from "./JobOffer.module.scss";
 import { FaHeart, FaMapMarkerAlt, FaStar } from "react-icons/fa";
-import jobOffers from "../../../data/jobOffers.json";
 import jwtDecode from "jwt-decode";
 import { useDispatch, useSelector } from "react-redux";
 import { StoreRootTypes } from "../../../store";
 
-export interface JobProps {
-  id: number;
-  position: string;
-  company: string;
-  location: string;
-  city: string;
-  description: string;
-  salary: string;
-  experience: string;
+export interface JobOfferProps {
+    id: number;
+    position: string;
+    company: string;
+    location: string;
+    city: string;
+    description: string;
+    salary: string;
+    experience: string;
+
 }
 
-const Job: FC<JobProps> = ({ id, position, company, location, city, description, salary, experience }) => {
+const JobOffer: FC<JobOfferProps> = ({id,
+  position,
+  company,
+  location,
+  city,
+  description,
+  salary,
+  experience }) => {
   const dispatch = useDispatch();
   const token = useSelector((state: StoreRootTypes) => state.auth.setToken);
   const user: any = jwtDecode(token);
 
   return (
     <div className={styles.Job}>
-      <div key={id} className={styles.applicant}>
-        <div className={styles.applicantHeader}>
+      <div key={id} className={styles.jobOffer}>
+        <div className={styles.jobOfferHeader}>
           <span className={styles.badge}>{company}</span>
-          <span className={styles.applicantRate}>
+          {/* <span className={styles.jobOfferRate}>
             <FaStar />
             <span>{"4.5"}</span>
             <span className={styles.heartSVG}>
               <FaHeart />
             </span>
-          </span>
+          </span> */}
         </div>
-        <div className={styles.applicantBody}>
+        <div className={styles.jobOfferBody}>
           <h5>{position}</h5>
-          <div className={styles.applicantAddress}>
+          <div className={styles.jobOfferAddress}>
             <span>
               <FaMapMarkerAlt />
             </span>
@@ -52,4 +59,4 @@ const Job: FC<JobProps> = ({ id, position, company, location, city, description,
   );
 };
 
-export default Job;
+export default JobOffer;

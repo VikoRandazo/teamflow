@@ -1,0 +1,78 @@
+@import "../../../../styles/colorsPallete.scss";
+@import "../../../../styles/placeholders.scss";
+@import "../../../../styles/elements.scss";
+
+.RegisterStep2 {
+  width: 100%;
+  height: 100%;
+
+  & > .header {
+    width: 100%;
+    height: 20%;
+    @extend %flexCol;
+    align-items: center;
+    padding: 0.5em 0;
+
+    & > .step > h4 {
+      color: rgba($colorTitle, 1);
+      margin-bottom: 1em;
+    }
+  }
+  & > .body {
+    height: 60%;
+    width: 100%;
+    @extend %flexCol;
+    align-items: center;
+    padding: 0.5em 0;
+
+    & > .role {
+      width: 100%;
+      color: rgba($colorTitle, 1);
+
+      & > p {
+        font-size: 1.15em;
+      }
+    }
+
+    & > .svg {
+      height: 30vh;
+      width: 100%;
+      border-radius: 2em;
+      @extend %flexRow;
+      align-items: center;
+      justify-content: center;
+      overflow: visible;
+      padding: 1em;
+      
+      & > svg {
+        height: 30vh;
+        max-width: auto;
+      }
+    }
+    & > .cards {
+      height: 60%;
+      @extend %flexCol;
+      align-items: flex-start;
+      justify-content: flex-start;
+      gap: 1em;
+      min-height: 100%;
+      width: 100%;
+      transition: all 0.6s ease-in;
+      padding: 1em 0;
+
+      & > .card {
+        height: 25%;
+        width: 100%;
+        white-space: normal;
+      }
+
+      .para {
+        width: 100%;
+        white-space: normal;
+        font-size: 0.75em;
+        pointer-events: none;
+        color: $colorTitle;
+      }
+    }
+  }
+}

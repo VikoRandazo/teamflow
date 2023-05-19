@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import styles from './Main.module.scss';
-import Router from '../Router/Router';
+import Router from '../../Router/Router';
 interface MainProps {}
 
 const Main: FC<MainProps> = () => (

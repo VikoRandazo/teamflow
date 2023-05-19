@@ -1,12 +1,43 @@
-import React, { FC } from 'react';
-import styles from './Favorites.module.scss';
+import React, { FC, useState } from "react";
+import styles from "./Favorites.module.scss";
+import { FaMapMarkerAlt, FaStar } from "react-icons/fa";
+import LikeButton from "./LikeButton/LikeButton";
+import Applicant, { ApplicantProps } from "../../jobMarket/Applicant/Applicant";
+import { FreelancerProps } from "../../jobMarket/Freelancer/Freelancer";
+import { JobOfferProps } from "../../jobMarket/JobOffer/JobOffer";
+import Card from "../../Cards/CardRow/CardRow";
+import Favorite from "./Favorite/Favorite";
 
-interface FavoritesProps {}
+interface FavoritesProps {
+  favoriteObject?: ApplicantProps | FreelancerProps | JobOfferProps;
+}
 
-const Favorites: FC<FavoritesProps> = () => (
-  <div className={styles.Favorites}>
-    Favorites Component
-  </div>
-);
+const Favorites: FC<FavoritesProps> = ({ favoriteObject }) => {
+  const [favorites, setFavorites] = useState([]);
+
+  return (
+    <div className={styles.Favorites}>
+      <div className={styles.header}>
+        <div className={styles.title}>
+          <h3>My Favorites</h3>
+        </div>
+      </div>
+      <div className={styles.body}>
+    <Card>
+<Favorite />
+    </Card>
+        {/* {Array.isArray(favorites) && favorites.length > 0 ? (
+          favorites.map((favorite) => (
+            <Card>
+              <Favorite key={favoriteObject?.id} favoriteType={favoriteObject}/>
+            </Card>
+          ))
+        ) : (
+          <p>There's nothing here...</p>
+        )} */}
+      </div>
+    </div>
+  );
+};
 
 export default Favorites;

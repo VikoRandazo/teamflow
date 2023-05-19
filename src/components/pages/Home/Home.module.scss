@@ -6,87 +6,49 @@
   width: 100%;
   height: 100%;
 
+  & > hr {
+    border-radius: 1em;
+    width: 25%;
+    border: none;
+    height: 0.25em;
+    background: linear-gradient(
+      120deg,
+      rgba(192, 121, 251, 1) 0%,
+      rgba(248, 168, 255, 1) 30%,
+      rgba(255, 255, 255, 0) 100%
+    );
+    margin-top: 0.5em;
+  }
+
+  & > .header {
+  }
+
   & > .body {
     @extend %flexCol;
     justify-content: flex-start;
     gap: 1em;
     width: 100%;
-    min-height: 100%;
-    
-    & > h5 {
-      color: $colorTitle;
-    }
+    height: 100;
+    padding: 1em 0;
 
+    & > h5 {
+      color: rgba($colorTitle, 1);
+    }
 
     & > .cards {
       @extend %flexRow;
-      align-items: flex-start;
-      justify-content: flex-start;
       gap: 1em;
-      overflow-x: auto;
-      overflow-y: hidden;
-      min-height: 15vh;
-      width: 100%;
-
-      & > .card {
-        height: 100%;
-        width: 30vw;
-        padding: 0.5em;
-        white-space: normal;
-        transition: all 0.2s ease;
-
-        &.active {
-          width: 40vw;
-          background: linear-gradient(
-            180deg,
-            rgba($colorSecondary, 100%) 1%,
-            rgba($colorPrimary, 100%) 90%
-          );
-          & > svg,
-          p {
-            color: rgba(#fff, 1);
-            font-weight: 500;
-          }
-        }
-      }
-
-      .para {
-        width: 100%;
-        white-space: normal;
-        font-size: 0.75em;
-        pointer-events: none;
-        color: $colorTitle;
-      }
-
-      svg {
-        color: rgba($colorPrimary, 1);
-        pointer-events: none;
-      }
-    }
-    & > .recommendations {
-      width: 100%;
-      height: 100%;
-
-
-      .title {
+      padding: 1em 0;
+      
+      & > .applications {
+        overflow-x: auto;
         @extend %flexRow;
-        justify-content: space-between;
-        padding: 0.5em;
-        
-      & > h5 {
-        color: $colorTitle;
-      }
-
-      & > span {
-        color: $colorTitle;
-      }
-      }
-      .applications {
-        @extend %flexCol;
-        width: 100%;
-        height: 100%;
         gap: 1em;
-        overflow-y: scroll;
+        height: 25vh;
+
+        & > h5 {
+          color: rgba($colorTitle, 1);
+        }
       }
     }
   }

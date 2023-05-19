@@ -37,7 +37,7 @@ const Register: FC<RegisterProps> = () => {
     if (token) {
       dispatch(authSlice.actions.setToken(token));
       dispatch(authSlice.actions.setUser(credentials));
-      navigate("/home")
+      navigate("/authForm/register/step2")
     }
   };
 
@@ -105,7 +105,7 @@ const Register: FC<RegisterProps> = () => {
           </label>
         </div>
         <div className={styles.CTA}>
-          <button className={styles.primary} onClick={handleRegister}>Sign in</button>
+          <button className={styles.primary} onClick={handleRegister}>Continue</button>
         </div>
       </div>
       <div className={styles.footer}>

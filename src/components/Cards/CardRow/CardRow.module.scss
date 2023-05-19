@@ -1,0 +1,11 @@
+@import "../../../styles/colorsPallete.scss";
+@import "../../../styles/placeHolders.scss";
+
+.CardRow {
+  @extend %flexCol;
+  height: 100%;
+  gap: 0.75em;
+  background-color: $colorBackgroundModal;
+  border-radius: 1em;
+  padding: 1em;
+}

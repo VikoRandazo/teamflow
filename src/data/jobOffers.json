@@ -98,5 +98,55 @@
     "description": "We are seeking an experienced Product Manager to lead the development of our products...",
     "salary": "$110,000",
     "experience": "5+ years"
+  },
+  {
+    "id": 28011,
+    "position": "Software Developer",
+    "company": "ABC Tech",
+    "location": "Seattle",
+    "city": "Seattle",
+    "description": "Join our team as a Software Developer and contribute to the development of innovative software solutions...",
+    "salary": "$95,000",
+    "experience": "3-5 years"
+  },
+  {
+    "id": 28012,
+    "position": "UX/UI Designer",
+    "company": "XYZ Design Agency",
+    "location": "London",
+    "city": "London",
+    "description": "We are seeking a talented UX/UI Designer to create intuitive and visually appealing user interfaces...",
+    "salary": "$80,000",
+    "experience": "2-4 years"
+  },
+  {
+    "id": 28013,
+    "position": "Frontend Developer",
+    "company": "PQR Tech Solutions",
+    "location": "Berlin",
+    "city": "Berlin",
+    "description": "Join our frontend development team and work on building responsive and interactive web applications...",
+    "salary": "$70,000",
+    "experience": "1-3 years"
+  },
+  {
+    "id": 28014,
+    "position": "Data Engineer",
+    "company": "EFG Data Solutions",
+    "location": "Sydney",
+    "city": "Sydney",
+    "description": "We are seeking a skilled Data Engineer to design and implement data pipelines and ETL processes...",
+    "salary": "$90,000",
+    "experience": "3-5 years"
+  },
+  {
+    "id": 28015,
+    "position": "Sales Manager",
+    "company": "LMN Sales Agency",
+    "location": "Chicago",
+    "city": "Chicago",
+    "description": "We are looking for a Sales Manager to lead and motivate our sales team in achieving revenue targets...",
+    "salary": "$100,000",
+    "experience": "5+ years"
   }
 ]

@@ -1,17 +1,18 @@
-import {configureStore} from "@reduxjs/toolkit";
+import { configureStore } from "@reduxjs/toolkit";
 import { authSlice, authSliceTypes } from "../slices/auth";
-import { searchActions, searchSlice, searchTypes } from "../slices/search";
+import { searchSlice, searchTypes } from "../slices/search";
+import { favoritesSlice, favoritesSliceTypes } from "../slices/favorites";
 
 export interface StoreRootTypes {
-    auth: authSliceTypes;
-    search:searchTypes;
-    
-  }
+  auth: authSliceTypes;
+  search: searchTypes;
+  favorites: favoritesSliceTypes;
+}
 
 export const store = configureStore({
-    reducer: {
-        [authSlice.name] : authSlice.reducer,
-        [searchSlice.name] : searchSlice.reducer
-    }
-})
-
+  reducer: {
+    [authSlice.name]: authSlice.reducer,
+    [searchSlice.name]: searchSlice.reducer,
+    [favoritesSlice.name]: favoritesSlice.reducer,
+  },
+});

@@ -42,7 +42,7 @@ const Login: FC<LoginProps> = () => {
   };
 
   const handleNavigate = (e: React.MouseEvent<HTMLButtonElement>) => {
-    navigate("/authForm/register");
+    navigate("/authForm/register/step1");
   };
 
   return (

@@ -1,7 +1,7 @@
 import React, { FC } from "react";
 import styles from "./Layout.module.scss";
-import Main from "../Main/Main";
-import Menu from "../Menu/Menu";
+import Main from "./Main/Main";
+import Menu from "./Menu/Menu";
 import { useDispatch, useSelector } from "react-redux";
 import { StoreRootTypes } from "../../store";
 import { authActions } from "../../slices/auth";

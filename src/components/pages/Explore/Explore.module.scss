@@ -24,4 +24,9 @@
         background: linear-gradient(140deg,rgba($colorPrimary, 100%)30%, rgba($colorSecondary, 100%)70%);
     }
   }
+
+  & > .results {
+    @extend %flexCol;
+    gap: 0.5em;
+  }
 }
