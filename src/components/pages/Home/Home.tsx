@@ -12,6 +12,7 @@ import applicants from "../../../data/applicants.json";
 import jobOffers from "../../../data/jobOffers.json";
 import freelancers from "../../../data/freeLancers.json";
 import Card from "../../Cards/CardRow/CardRow";
+import CardRow from "../../Cards/CardRow/CardRow";
 
 interface HomeProps {}
 const Home: FC<HomeProps> = () => {
@@ -41,67 +42,20 @@ const Home: FC<HomeProps> = () => {
   return (
     <div className={styles.Home}>
       <div className={styles.header}>
-        <h3>Welcom Back {firstName}! </h3>
+        <h3>
+          Hello, <br /> {firstName} {lastName}!
+        </h3>
       </div>
-      <hr/>
       <div className={styles.body}>
-        <h5>New Opportunities</h5>
-
-
-
+        <div className={styles.searchContainer}>
+          <input type="text" placeholder="Search somthing..." />
+        </div>
+          <div className={styles.title}>
+            <p>Just for You</p>
+          </div>
         <div className={styles.cards}>
           <div className={styles.applications}>
-            {purpose === `jobOffers`
-              ? jobOffers.map((offer) => (
-                  <Card>
-                    <JobOffer
-                      id={offer.id}
-                      position={offer.position}
-                      company={offer.company}
-                      location={offer.location}
-                      city={offer.city}
-                      description={offer.description}
-                      salary={offer.salary}
-                      experience={offer.experience}
-                    />
-                  </Card>
-                ))
-              : null}
-            {purpose === `applicants`
-              ? applicants.map((result) => (
-                  <Card>
-                    <Applicants
-                      id={result.id}
-                      name={result.name}
-                      contactInformation={{
-                        address: {
-                          city: result.contactInformation.address.city,
-                        },
-                      }}
-                      positionAppliedFor={result.positionAppliedFor}
-                      resumeCV={result.resumeCV}
-                    />
-                  </Card>
-                ))
-              : null}
-
-            {purpose === `freelancers`
-              ? freelancers.map((result) => (
-                  <Card>
-                    <Freelancer
-                      id={result.id}
-                      name={result.name}
-                      contactInformation={{
-                        address: {
-                          city: result.contactInformation.address.city,
-                        },
-                      }}
-                      positionAppliedFor={result.positionAppliedFor}
-                      resumeCV={result.resumeCV}
-                    />
-                  </Card>
-                ))
-              : null}
+            <CardRow />
           </div>
         </div>
         <div className={styles.footer}></div>

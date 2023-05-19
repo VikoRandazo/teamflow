@@ -37,6 +37,13 @@ input {
   border: none;
   background-color: rgba($colorBackgroundModal, 100%);
   color: $colorTitle;
+  outline: 3px solid transparent;
+  transition: all 0.2s ease;
+
+  &.active {
+    background-color: rgba($colorActive, 100%);
+  }
+
   &::placeholder {
     opacity: 0.5;
   }
@@ -54,11 +61,13 @@ input {
   @extend %flexCol;
 }
 
+img {
+  height: 100%;
+  width: 100%;
+}
+
 button {
-  transition: all 0.2s ease;
-  &:active {
-    scale: 0.98;
-  }
+  transition: all 0.1s ease;
 }
 
 .primary {
@@ -68,6 +77,11 @@ button {
   border: none;
   background: linear-gradient(90deg, rgba($colorPrimary, 60%), rgba($colorSecondary, 100%));
   color: #fff;
+
+  &:is(:active) {
+    outline: 0.125em solid rgba($colorPrimary, 100%);
+    outline-offset: 0.25em;
+  }
 }
 
 .secondary {
@@ -77,8 +91,6 @@ button {
   background-color: $colorBackgroundModal;
   color: rgba($colorTitle, 1);
   border: none;
-
-
 }
 
 input[type="checkbox"] {
@@ -150,4 +162,73 @@ label {
 a {
   text-decoration: none;
   font-size: 0.875em;
+}
+
+.navSwitch {
+  transition: all 0.2s ease;
+  background-color: rgba($colorBackgroundModal, 1);
+  color: rgba($colorTitle, 0.5);
+  width: 100%;
+  height: 100%;
+  @extend %flexRow;
+  align-items: center;
+  justify-content: center;
+  border-radius: 1em;
+  gap: 8%;
+  font-size: 1.125em;
+
+  & > svg {
+    font-size: 1.75em;
+  }
+
+  &.active {
+    background-color: rgba($colorActive, 100%);
+    border-radius: calc(1em * 0.5);
+    z-index: 111111;
+    font-weight: 700;
+    color: rgba($colorTitle, 1);
+  }
+}
+
+.preference {
+  transition: all 0.1s ease;
+  background-color: rgba($colorBackgroundModal, 1);
+  padding: 1em;
+  border-radius: 0.75em;
+  width: 100%;
+  height: 4em;
+
+  & > .title {
+    @extend %flexRow;
+    gap: 1em;
+
+    & > p {
+      color: $colorPara;
+      pointer-events: none;
+    }
+
+    & > svg {
+      color: $colorPara;
+      pointer-events: none;
+    }
+  }
+
+  &:active {
+    background-color: rgba($colorActive, 1);
+  }
+  &.logOutBtn {
+    transition: all 0.2s ease;
+
+    background-color: rgba($colorWarning, 0.6);
+
+    & > p,
+    svg {
+      color: $colorTitle;
+      pointer-events: none;
+    }
+
+    &:active {
+      filter: brightness(1.6);
+    }
+  }
 }

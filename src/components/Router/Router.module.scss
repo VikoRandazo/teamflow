@@ -1,8 +1,9 @@
 @import "../../styles/placeholders.scss";
+@import "../../styles/colorsPallete.scss";
 
 .Router {
   width: 100vw;
-  min-height: 100vh;
-
   padding: 1em;
+  overflow: auto;
+  background-color: $colorBackgroundPage;
 }
