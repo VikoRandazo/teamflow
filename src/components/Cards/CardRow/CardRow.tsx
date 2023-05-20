@@ -10,18 +10,19 @@ import { useSelector } from "react-redux";
 import { StoreRootTypes } from "../../../store";
 import Card from "../Card/Card";
 
-interface CardRowProps {}
+interface CardRowProps {
+
+}
 
 const CardRow: FC<CardRowProps> = () => {
   const purpose = useSelector((state: StoreRootTypes) => state.auth.purpose);
-  console.log(purpose);
 
   return (
     <div className={styles.CardRow}>
       {purpose === `applicants` &&
         applicants.map((applicant) => {
           return (
-            <Card>
+            <Card key={applicant.id}>
               <Applicant
                 key={applicant.id}
                 id={applicant.id}
@@ -41,13 +42,14 @@ const CardRow: FC<CardRowProps> = () => {
       {purpose === `jobOffers` &&
         jobOffers.map((offer) => {
           return (
-            <Card>
+            <Card key={offer.id}>
               <JobOffer
                 id={offer.id}
                 position={offer.position}
                 company={offer.company}
                 location={offer.location}
                 city={offer.city}
+                category={offer.category}
                 description={offer.description}
                 salary={offer.salary}
                 experience={offer.experience}
@@ -59,7 +61,7 @@ const CardRow: FC<CardRowProps> = () => {
       {purpose === `freelancers` &&
         freelancers.map((freelancer) => {
           return (
-            <Card>
+            <Card key={freelancer.id}>
               <Freelancer
                 key={freelancer.id}
                 id={freelancer.id}

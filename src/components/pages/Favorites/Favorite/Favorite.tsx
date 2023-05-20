@@ -3,7 +3,6 @@ import styles from "./Favorite.module.scss";
 import Applicant from "../../../jobMarket/Applicant/Applicant";
 import { useSelector } from "react-redux";
 import { StoreRootTypes } from "../../../../store";
-import { ApplicantProps } from "../../../../models/jobMarket";
 
 interface FavoriteProps {
 
@@ -11,7 +10,6 @@ interface FavoriteProps {
 
 const Favorite: FC<FavoriteProps> = () => {
   const favorite:any = useSelector((state: StoreRootTypes) => state.favorites.favorite);
-  
   console.log(favorite);
   
   return (

@@ -15,7 +15,6 @@ interface ExploreProps {}
 const Explore: FC<ExploreProps> = () => {
   const dispatch = useDispatch();
   const [activeTag, setActiveTag] = useState<any>(`jobOffers`);
-  console.log(activeTag);
 
   const [results, setResults] = useState<any>([]);
 
@@ -43,16 +42,13 @@ const Explore: FC<ExploreProps> = () => {
     if (Array.isArray(results) && activeTag === `jobOffers`) {
       setResults(jobOffers.filter((offer) => offer.position.toLowerCase().includes(value.toLowerCase())));
       dispatch(searchActions.setNewResults(results));
-      console.log(results);
     } else if (Array.isArray(results) && (activeTag === `applicants` || `freelancers`)) {
       setResults(results.filter((result) => result.name.toLowerCase().includes(value.toLowerCase())));
       dispatch(searchActions.setNewResults(results));
-      console.log(results);
     }
   };
 
   useEffect(() => {
-    console.log(results);
   }, [results]);
 
   return (
@@ -82,6 +78,7 @@ const Explore: FC<ExploreProps> = () => {
                   company={offer.company}
                   location={offer.location}
                   city={offer.city}
+                  category={offer.category}
                   description={offer.description}
                   salary={offer.salary}
                   experience={offer.experience}

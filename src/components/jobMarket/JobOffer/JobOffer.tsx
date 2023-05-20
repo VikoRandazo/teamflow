@@ -11,6 +11,7 @@ export interface JobOfferProps {
     company: string;
     location: string;
     city: string;
+    category:string;
     description: string;
     salary: string;
     experience: string;

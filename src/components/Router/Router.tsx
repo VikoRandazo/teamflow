@@ -41,6 +41,7 @@ const Router: FC<RouterProps> = () => (
             company={""}
             location={""}
             city={""}
+            category={""}
             description={""}
             salary={""}
             experience={""}
