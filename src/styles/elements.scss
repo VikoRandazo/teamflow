@@ -196,10 +196,12 @@ a {
   padding: 1em;
   border-radius: 0.75em;
   width: 100%;
-  height: 4em;
+  height: 3.5em;
 
   & > .title {
+    height: 100%;
     @extend %flexRow;
+    align-items: center;
     gap: 1em;
 
     & > p {
@@ -210,25 +212,23 @@ a {
     & > svg {
       color: $colorPara;
       pointer-events: none;
+      
+      &:nth-of-type(2) {
+        margin-left: auto;
+      }
     }
   }
+}
 
-  &:active {
-    background-color: rgba($colorActive, 1);
-  }
-  &.logOutBtn {
-    transition: all 0.2s ease;
-
-    background-color: rgba($colorWarning, 0.6);
-
-    & > p,
-    svg {
+.logOutBtn {
+  color: rgba($colorTitle, 1);
+  transition: all 0.2s ease;
+  background-color: rgba($colorWarning, 0.6) !important;
+  & > .title {
+    & > svg,
+    p {
       color: $colorTitle;
       pointer-events: none;
-    }
-
-    &:active {
-      filter: brightness(1.6);
     }
   }
 }
