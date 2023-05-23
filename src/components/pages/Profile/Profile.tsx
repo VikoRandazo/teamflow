@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useState } from "react";
+import React, { FC, useEffect,  useState } from "react";
 import styles from "./Profile.module.scss";
 import { logout } from "../../../auth/auth";
 import { useNavigate } from "react-router";
@@ -33,11 +33,11 @@ const Profile: FC<ProfileProps> = () => {
 
   const [editable, setEditable] = useState<boolean>(false);
   const [navSwitch, setNavSwitch] = useState<string>(`General`);
-  const [tags, setTags] = useState("");
   const [distanceBarValue, setDistanceBarValue] = useState<number>(20);
   const user = useSelector((state: StoreRootTypes) => state.auth.user);
   const userCategories = useSelector((state: StoreRootTypes) => state.preferences.categories);
-
+  
+  
   useEffect(() => {
     console.log(userCategories);
   }, [userCategories]);

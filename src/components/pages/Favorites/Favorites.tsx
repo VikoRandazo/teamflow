@@ -22,20 +22,7 @@ const Favorites: FC<FavoritesProps> = ({ favoriteObject }) => {
           <h3>My Favorites</h3>
         </div>
       </div>
-      <div className={styles.body}>
-    <Card>
-<Favorite />
-    </Card>
-        {/* {Array.isArray(favorites) && favorites.length > 0 ? (
-          favorites.map((favorite) => (
-            <Card>
-              <Favorite key={favoriteObject?.id} favoriteType={favoriteObject}/>
-            </Card>
-          ))
-        ) : (
-          <p>There's nothing here...</p>
-        )} */}
-      </div>
+      <div className={styles.body}></div>
     </div>
   );
 };

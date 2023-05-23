@@ -2,24 +2,23 @@
 @import "../../../../styles/placeholders.scss";
 @import "../../../../styles/elements.scss";
 
-.RegisterStep2 {
+.RegisterStep3 {
   width: 100%;
   height: 100%;
   background: linear-gradient(180deg, #c179fb 0%, #f8a8ff 90%);
 
   & > .header {
+    position: relative;
     height: 25%;
     width: 100%;
     padding: 1em;
-    position: relative;
 
     & > svg {
       position: absolute;
       top: 1em;
-      left: 2em;
-      right: 2em;
-
-      z-index: 2;
+      left: 3em;
+      right: 3em;
+      z-index: 1;
       filter: drop-shadow(0 2em 1em rgba($colorBackgroundPage, 30%));
     }
   }
@@ -45,14 +44,14 @@
         justify-content: center;
         align-items: center;
         gap: 1em;
-        padding-bottom: 1em;
+        padding-bottom: 0.25em;
 
         & > svg {
           color: #fff;
           height: 0.5em;
           width: auto;
 
-          &:nth-of-type(2) {
+          &:nth-of-type(1) {
             color: $colorAccent;
             outline: 0.125em solid $colorAccent;
             outline-offset: 0.25em;
@@ -64,9 +63,10 @@
 
       & > .purposes {
         width: 100%;
+        height: 55%;
         @extend %flexCol;
-        align-items: flex-start;
-        justify-content: flex-start;
+        align-items: center;
+        justify-content: center;
         gap: 0.75em;
         padding-bottom: 2em;
 
@@ -76,18 +76,19 @@
           width: 100%;
         }
 
-        & > .purpose {
+        & > .categories {
           background-color: rgba($colorBackgroundPage, 30%);
-          width: 100%;
-          @extend %flexRow;
-          align-items: center;
-          text-align: center;
-          gap: 0.75em;
+          @extend %flexCol;
           border-radius: 0.75em;
-          padding: 0.875em 1.5em;
+          padding: 1em 2em;
+          gap: 0.75em;
+          overflow: auto;
+          width: 100%;
 
-          &.active {
-            background-color: #f8a8ff;
+          & > .badge {
+            text-align: center;
+            flex-basis: 50%;
+            padding: 1em;
           }
 
           & > svg {

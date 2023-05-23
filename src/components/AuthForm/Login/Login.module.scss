@@ -4,9 +4,10 @@
 
 .Login {
   width: 100%;
-  min-height: 95vh;
+  height: 100%;
   @extend %flexCol;
   justify-content: space-between;
+  padding: 1em;
 
   .header {
     height: 20%;

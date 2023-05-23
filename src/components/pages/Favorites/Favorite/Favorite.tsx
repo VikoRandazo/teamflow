@@ -14,7 +14,7 @@ const Favorite: FC<FavoriteProps> = () => {
   
   return (
     <div className={styles.Favorite}>
-      {favorite ? (
+      {/* {favorite ? (
         <Applicant
           id={favorite?.id}
           name={favorite.name}
@@ -26,7 +26,7 @@ const Favorite: FC<FavoriteProps> = () => {
           positionAppliedFor={favorite.positionAppliedFor}
           resumeCV={favorite.resumeCV}
         />
-      ) : null}
+      ) : null} */}
     </div>
   );
 };

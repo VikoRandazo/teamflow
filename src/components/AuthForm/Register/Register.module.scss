@@ -4,9 +4,10 @@
 
 .Register {
   width: 100%;
-  min-height: 95vh;
+  min-height: 100%;
   @extend %flexCol;
   justify-content: space-between;
+  padding: 1em;
 
   .header {
     height: 20%;

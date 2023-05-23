@@ -13,6 +13,7 @@ import Favorites from "../pages/Favorites/Favorites";
 import Explore from "../pages/Explore/Explore";
 
 import RegisterStep2 from "../AuthForm/Register/RegisterStep2/RegisterStep2";
+import RegisterStep3 from "../AuthForm/Register/RegisterStep3/RegisterStep3";
 
 interface RouterProps {}
 
@@ -24,6 +25,7 @@ const Router: FC<RouterProps> = () => (
       <Route path={"authForm/login"} element={<Login />} />
       <Route path={"authForm/register/step1"} element={<Register />} />
       <Route path={"authForm/register/step2"} element={<RegisterStep2 />} />
+      <Route path={"authForm/register/step3"} element={<RegisterStep3 />} />
 
       {/* Pages */}
       <Route path={"/home"} element={<Home />} />

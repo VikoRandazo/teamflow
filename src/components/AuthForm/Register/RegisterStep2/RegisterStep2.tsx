@@ -1,7 +1,7 @@
 import React, { FC, useEffect, useState } from "react";
 import styles from "./RegisterStep2.module.scss";
 import { ReactComponent as Svg } from "../../../../styles/assets/registerStep2.svg";
-import { FaUserTie, FaBriefcase, FaLaptop } from "react-icons/fa";
+import { FaUserTie, FaBriefcase, FaLaptop, FaCircle } from "react-icons/fa";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router";
 import { authActions } from "../../../../slices/auth";
@@ -21,7 +21,9 @@ const RegisterStep2: FC<RegisterStep2Props> = () => {
   const [purpose, setPurpose] = useState<any>(`jobOffers`);
 
   const handleSelectCard = (e: React.MouseEvent<HTMLDivElement>) => {
-    const prevNode = document.getElementsByClassName(styles.card + ` ` + styles.active)[0];
+    const prevNode = document.getElementsByClassName(styles.purpose + ` ` + styles.active)[0];
+    console.log(prevNode);
+    
     if (prevNode) {
       prevNode.classList.remove(styles.active);
     }
@@ -52,51 +54,45 @@ const RegisterStep2: FC<RegisterStep2Props> = () => {
   const handleRegister = () => {
     dispatch(databaseActions.setPurpose(purpose));
     dispatch(databaseActions.setData(data));
-    dispatch(authActions.isLoggedIn(true));
-    navigate("/home");
+    navigate("/authForm/register/step3");
   };
+
+  const handleGoBack = () => {
+    navigate("/authForm/register/step1")
+  }
 
   return (
     <div className={styles.RegisterStep2}>
       <div className={styles.header}>
-        <div className={styles.step}>
-          <h4>2 of 2</h4>
-        </div>
+        <Svg />
       </div>
       <div className={styles.body}>
-        <div className={styles.svg}>
-          <Svg />
-        </div>
-        <div className={styles.role}>
-          <p>choose your role:</p>
-        </div>
-        <div className={styles.cards}>
-          <div id={`jobOffers`} onClick={handleSelectCard} className={styles.card + " " + styles.active}>
-            <FaUserTie />
-            <div className={styles.para}>
-              <h4>im looking for a job</h4>
+        <div className={styles.clipPath}>
+          <div className={styles.steps}>
+            <FaCircle />
+            <FaCircle />
+            <FaCircle />
+          </div>
+          <div className={styles.purposes}>
+            <h5>Tell Us: What Are You Looking For?</h5>
+            <div id="jobOffers" className={styles.purpose} onClick={handleSelectCard}>
+              <FaUserTie />
+              <h5>Jobs</h5>
+            </div>
+            <div id={"applicants"} className={styles.purpose} onClick={handleSelectCard}>
+              <FaBriefcase />
+              <h5>Employees</h5>
+            </div>
+            <div id={"freelancers"} className={styles.purpose} onClick={handleSelectCard}>
+              <FaLaptop />
+              <h5>Freelancers</h5>
             </div>
           </div>
-
-          <div id={`applicants`} onClick={handleSelectCard} className={styles.card}>
-            <FaBriefcase />
-            <div className={styles.para}>
-              <h4>im looking for an employee</h4>
+            <div className={styles.navigation}>
+              <button className={styles.primary} onClick={handleRegister}>Get started!</button>
+              <button className={styles.secondary} onClick={handleGoBack}>Go back</button>
             </div>
-          </div>
-
-          <div id={`freelancers`} onClick={handleSelectCard} className={styles.card}>
-            <FaLaptop />
-            <div className={styles.para}>
-              <h4>im looking for a freelancer</h4>
-            </div>
-          </div>
         </div>
-        <>
-          <button onClick={handleRegister} className={styles.secondary}>
-            Sign Up
-          </button>
-        </>
       </div>
     </div>
   );

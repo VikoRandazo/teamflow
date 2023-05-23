@@ -17,20 +17,20 @@ h3 {
 
 h4 {
   font-size: 1.25em;
-  color: $colorTitleDark;
+  color: $colorTitle;
 }
 
 h5 {
   font-size: 1em;
-  color: $colorTitleDark;
+  color: $colorTitle;
 }
 
 h6 {
   font-size: 0.75em;
-  color: $colorTitleDark;
+  color: $colorTitle;
 }
 
-input:is([type=text],[type=password]) {
+input:is([type="text"], [type="password"]) {
   border-radius: 0.5em;
   padding: 1em;
   outline: none;
@@ -40,7 +40,7 @@ input:is([type=text],[type=password]) {
   outline: 6px solid rgba(transparent, 100%);
   transition: all 0.2s ease;
   outline-offset: 0px;
-  
+
   &::placeholder {
     opacity: 0.5;
   }
@@ -86,9 +86,14 @@ button {
   padding: 0.75em 1em;
   border-radius: 0.5em;
   width: 100%;
-  background-color: $colorBackgroundModal;
+  background-color: rgba($colorBackgroundPage, 50%);
   color: rgba($colorTitle, 1);
   border: none;
+
+  &:is(:active) {
+    outline: 0.125em solid rgba($colorPrimary, 100%);
+    outline-offset: 0.25em;
+  }
 }
 
 input[type="checkbox"] {
@@ -143,18 +148,15 @@ label {
 
 .badge {
   padding: 0.5em 2em;
-  border: 1px solid rgba($colorSecondary, 40%);
-  background-color: rgba($colorSecondary, 5%);
-  color: rgba($colorSecondary, 100%);
+  background-color: rgba($colorBackgroundModal, 1);
+  color: rgba($colorTitle, 100%);
   border-radius: 0.5em;
   font-size: 0.75em;
-  margin-bottom: 1em;
   min-width: max-content;
-
+  height: fit-content;
   &.active {
     background-color: rgba($colorSecondary, 100%);
-    border: 1px solid transparent;
-    color: $colorTitle;
+    color: rgba($colorTitle, 1);
   }
 }
 
