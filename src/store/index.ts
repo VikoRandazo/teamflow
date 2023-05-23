@@ -1,12 +1,12 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { authSlice, authSliceTypes } from "../slices/auth";
-import { searchSlice, searchTypes } from "../slices/search";
+import { databaseSlice, databaseTypes } from "../slices/database";
 import { favoritesSlice, favoritesSliceTypes } from "../slices/favorites";
 import { preferenceSlice, preferencesTypes } from "../slices/preferences";
 
 export interface StoreRootTypes {
   auth: authSliceTypes;
-  search: searchTypes;
+  database: databaseTypes;
   favorites: favoritesSliceTypes;
   preferences: preferencesTypes;
 }
@@ -14,7 +14,7 @@ export interface StoreRootTypes {
 export const store = configureStore({
   reducer: {
     [authSlice.name]: authSlice.reducer,
-    [searchSlice.name]: searchSlice.reducer,
+    [databaseSlice.name]: databaseSlice.reducer,
     [favoritesSlice.name]: favoritesSlice.reducer,
     [preferenceSlice.name]: preferenceSlice.reducer,
   },

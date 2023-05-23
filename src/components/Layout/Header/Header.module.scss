@@ -8,36 +8,42 @@
   @extend %flexRow;
   align-items: center;
   justify-content: space-between;
-  padding: 0.5em 1em;
   background-color: $colorBackgroundPage;
+  padding: 0.5em 1em;
 
-  & > .logo {
+  & > .userContainer {
     height: 100%;
+    width: 70%;
     @extend %flexRow;
     align-items: center;
-    justify-content: flex-end;
+    white-space: nowrap;
+    gap: 0.5em;
 
-    & > img {
-      height: 70%;
+    & > h5 {
+      text-overflow: ellipsis;
+      color: $colorTitle;
+      font-weight: 400;
+      font-size: 0.875em;
+    }
+
+    & > svg {
+      background-color: $colorBackgroundModal;
+      border-radius: 50%;
+      height: 85%;
     }
   }
 
-  & > .icons {
+  & > .logo {
     height: 100%;
-    width: 30%;
+    width: 50%;
     @extend %flexRow;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: flex-end;
+    color: $colorTitle;
 
-    & > .notifications {
-      @extend %flexRow;
-      align-items: center;
-      justify-content: center;
-
-      & > svg {
-        font-size: 1.25em;
-        color: $colorSecondary;
-      }
+    & > svg {
+      border-radius: 50%;
+      font-size: 1.25em;
     }
   }
 }

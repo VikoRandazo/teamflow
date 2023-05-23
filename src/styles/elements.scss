@@ -30,25 +30,23 @@ h6 {
   color: $colorTitleDark;
 }
 
-input {
+input:is([type=text],[type=password]) {
   border-radius: 0.5em;
   padding: 1em;
   outline: none;
   border: none;
   background-color: rgba($colorBackgroundModal, 100%);
   color: $colorTitle;
-  outline: 3px solid transparent;
+  outline: 6px solid rgba(transparent, 100%);
   transition: all 0.2s ease;
-
-  &.active {
-    background-color: rgba($colorActive, 100%);
-  }
-
+  outline-offset: 0px;
+  
   &::placeholder {
     opacity: 0.5;
   }
   &:focus {
-    border: 1px solid rgba($colorPrimary, 100%);
+    outline: 3px solid rgba($colorBackgroundModal, 100%);
+    outline-offset: 0.25em;
 
     &::placeholder {
       color: $colorTitle;

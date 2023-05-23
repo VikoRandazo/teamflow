@@ -1,13 +1,11 @@
 @import "../../../styles/colorsPallete.scss";
 @import "../../../styles/elements.scss";
 .Menu {
-  position: fixed;
-  bottom: 2%;
-  left: 0;
-  height: 3.75em;
+  height: 100%;
   width: 100%;
   @extend %flexRow;
   justify-content: center;
+  margin-top: -2em ;
   
   & > .layout {
     width: 100%;

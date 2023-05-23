@@ -15,7 +15,7 @@ interface CardRowProps {
 }
 
 const CardRow: FC<CardRowProps> = () => {
-  const purpose = useSelector((state: StoreRootTypes) => state.auth.purpose);
+  const purpose = useSelector((state: StoreRootTypes) => state.database.purpose);
 
   return (
     <div className={styles.CardRow}>
@@ -33,8 +33,8 @@ const CardRow: FC<CardRowProps> = () => {
                   },
                 }}
                 positionAppliedFor={applicant.positionAppliedFor}
-                resumeCV={applicant.resumeCV}
-              />
+                resumeCV={applicant.resumeCV} workExperience={{
+                }}              />
             </Card>
           );
         })}

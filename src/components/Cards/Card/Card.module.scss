@@ -6,6 +6,11 @@
   border-radius: 1em;
   @extend %flexRow;
   height: 30vh;
-  min-width: 60vw;
   background-color: $colorBackgroundModal;
+  transition: all 0.2s ease;
+
+  &:active {
+    background-color: $colorActive;
+    scale: 0.98;
+  }
 }

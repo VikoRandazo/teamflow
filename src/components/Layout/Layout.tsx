@@ -18,13 +18,13 @@ const Layout: FC<LayoutProps> = () => {
     <div className={styles.Layout}>
       <div
         className={styles.header}
-        style={isLoggedIn ? { height: "8vh" } : { height: "0vh" }}
+        style={isLoggedIn ? { height: "10vh" } : { height: "0vh" }}
       >
         {isLoggedIn ? <Header /> : null}
       </div>
       <div
         className={styles.Main}
-        style={isLoggedIn ? { height: "84vh" } : { height: "100vh" }}
+        style={isLoggedIn ? { height: "82vh" } : { height: "100vh" }}
       >
         <Main />
       </div>

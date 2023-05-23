@@ -2,39 +2,58 @@ import React, { FC, useEffect, useState } from "react";
 import styles from "./RegisterStep2.module.scss";
 import { ReactComponent as Svg } from "../../../../styles/assets/registerStep2.svg";
 import { FaUserTie, FaBriefcase, FaLaptop } from "react-icons/fa";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router";
-import { StoreRootTypes } from "../../../../store";
 import { authActions } from "../../../../slices/auth";
-import { $CombinedState } from "redux";
+import { databaseActions } from "../../../../slices/database";
+import applicants from "../../../../data/applicants.json";
+import jobOffers from "../../../../data/jobOffers.json";
+import freelancers from "../../../../data/freeLancers.json";
+import { ApplicantProps, JobOfferProps, FreelancerProps } from "../../../../models/jobMarket";
+
 interface RegisterStep2Props {}
 
 const RegisterStep2: FC<RegisterStep2Props> = () => {
-  const dispatch = useDispatch()
-  const navigate = useNavigate()
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
-  const token = useSelector((state:StoreRootTypes) => state.auth.setToken)
-  const user = useSelector((state:StoreRootTypes) => state.auth.user)
-  
-  const [activeCard, setActiveCard] = useState<any>(`jobOffers`);
-  useEffect(() => {
-console.log(activeCard);
-
-  }, [activeCard])
-    const handleRegister = () => {
-      dispatch(authActions.setPurpose(activeCard))
-      dispatch(authActions.isLoggedIn(true))
-      navigate("/home")
-    }
+  const [data, setData] = useState<(ApplicantProps | JobOfferProps | FreelancerProps)[]>();
+  const [purpose, setPurpose] = useState<any>(`jobOffers`);
 
   const handleSelectCard = (e: React.MouseEvent<HTMLDivElement>) => {
-    const activeCardNode = e.currentTarget;
-    if (document.getElementsByClassName(styles.card + " " + styles.active)[0]) {
-      const prevCard = document.getElementsByClassName(styles.card + " " + styles.active)[0];
-      prevCard.classList.remove(styles.active);
+    const prevNode = document.getElementsByClassName(styles.card + ` ` + styles.active)[0];
+    if (prevNode) {
+      prevNode.classList.remove(styles.active);
     }
-    setActiveCard(activeCardNode.id);
-    activeCardNode.classList.add(styles.active);
+    const purposeNode = e.currentTarget;
+    purposeNode.classList.add(styles.active);
+    setPurpose(purposeNode.id);
+  };
+
+  useEffect(() => {
+    if (purpose === `applicants`) {
+      setData(applicants);
+      console.log(data);
+      dispatch(databaseActions.setPurpose(purpose));
+      dispatch(databaseActions.setData(data));
+    } else if (purpose === `jobOffers`) {
+      setData(jobOffers);
+      console.log(data);
+      dispatch(databaseActions.setPurpose(purpose));
+      dispatch(databaseActions.setData(data));
+    } else if (purpose === `freelancers`) {
+      setData(freelancers);
+      console.log(data);
+      dispatch(databaseActions.setPurpose(purpose));
+      dispatch(databaseActions.setData(data));
+    }
+  }, [purpose]);
+
+  const handleRegister = () => {
+    dispatch(databaseActions.setPurpose(purpose));
+    dispatch(databaseActions.setData(data));
+    dispatch(authActions.isLoggedIn(true));
+    navigate("/home");
   };
 
   return (
@@ -43,7 +62,6 @@ console.log(activeCard);
         <div className={styles.step}>
           <h4>2 of 2</h4>
         </div>
-  
       </div>
       <div className={styles.body}>
         <div className={styles.svg}>
@@ -75,7 +93,9 @@ console.log(activeCard);
           </div>
         </div>
         <>
-          <button onClick={handleRegister} className={styles.secondary}>Sign Up</button>
+          <button onClick={handleRegister} className={styles.secondary}>
+            Sign Up
+          </button>
         </>
       </div>
     </div>

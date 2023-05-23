@@ -19,7 +19,6 @@ const Home: FC<HomeProps> = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  const [data, setData] = useState<(ApplicantProps | JobOfferProps | FreelancerProps)[]>();
   const [userCategories, setUserCategories] = useState<string[]>([]);
   const [categories, setCategories] = useState<string[]>([
     `Accounting`,
@@ -34,10 +33,10 @@ const Home: FC<HomeProps> = () => {
     `Human Resources`,
     `Hi Tech`,
   ]);
-  const [searchResults, setSearchResults] = useState<(ApplicantProps | JobOfferProps | FreelancerProps)[]>();
 
   const token = useSelector((state: StoreRootTypes) => state.auth.setToken);
-  const purpose = useSelector((state: StoreRootTypes) => state.auth.purpose);
+  const purpose = useSelector((state: StoreRootTypes) => state.database.purpose);
+  const reduxUserCategories = useSelector((state: StoreRootTypes) => state.preferences.categories);
 
   const user: any = jwtDecode(token);
   const { firstName, lastName, username } = user.user;
@@ -52,69 +51,39 @@ const Home: FC<HomeProps> = () => {
       target.classList.add(styles.active);
       setUserCategories((prevState) => [...prevState, categoryName]);
       dispatch(preferencesActions.setCategories(userCategories));
-    } else if (target.classList.contains(styles.active)) {
+    } else if (target.classList.contains(styles.active) || reduxUserCategories.includes(categoryName)) {
       target.classList.remove(styles.active);
       setUserCategories((prevState) => prevState.filter((category) => category !== categoryName));
       dispatch(preferencesActions.setCategories(userCategories));
     }
   };
 
-  const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const searchValue = e.currentTarget.value;
-    if (purpose === `jobOffers`) {
-      const searchResults = jobOffers.filter(
-        (offer) =>
-          offer.position.toLowerCase().includes(searchValue.toLowerCase()) ||
-          offer.category.toLowerCase().includes(searchValue.toLowerCase()) ||
-          offer.city.toLowerCase().includes(searchValue.toLowerCase()) ||
-          offer.company.toLowerCase().includes(searchValue.toLowerCase()) ||
-          offer.salary.toLowerCase().includes(searchValue.toLowerCase())
-      );
-      setSearchResults(searchResults);
-    }
-  };
-
-  useEffect(() => {
-    console.log(searchResults);
-  }, [searchResults]);
-
-  useEffect(() => {
-    if (purpose === `applicants`) {
-      setData(applicants);
-    } else if (purpose === `jobOffers`) {
-      setData(jobOffers);
-    } else if (purpose === `freelancers`) {
-      setData(freelancers);
-    }
-  }, [data]);
-
   return (
     <div className={styles.Home}>
       <div className={styles.header}>
-        <h3>
-          Hello, <br /> {firstName} {lastName}!
-        </h3>
+        <h5>Explore Your Path to a Dream Career</h5>
+        <div className={styles.categories}>
+          {categories.map((category) => {
+            const uuid = uuidV4();
+            return (
+              <span onClick={handleActive} className={styles.badge}>
+                {category}
+              </span>
+            );
+          })}
+        </div>
       </div>
       <div className={styles.body}>
-        <div className={styles.searchContainer}>
-          <input type="text" onChange={handleSearch} placeholder="Search somthing..." />
+        <div className={styles.title}>
+          <p>Just for you</p>
         </div>
-        <div className={styles.categories}>
-          <div className={styles.title}></div>
-          <div className={styles.body}>
-            {categories.map((category) => {
-              const uuid = uuidV4();
-              return (
-                <span onClick={handleActive} className={styles.badge}>
-                  {category}
-                </span>
-              );
-            })}
-          </div>
+        <div className={styles.title}>
+          <p>Recently watched</p>
         </div>
         <div className={styles.title}>
           <p>Browse by category</p>
         </div>
+        <div className={styles.body}></div>
         <div className={styles.cards}>
           <div className={styles.applications}>
             {purpose === `jobOffers` &&

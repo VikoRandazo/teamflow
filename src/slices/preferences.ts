@@ -25,6 +25,7 @@ export const preferenceSlice = createSlice({
     },
     setSalary(state, { payload }) {},
     setTags(state, { payload }) {},
+    resetPreferences: () => preferencesInitState
   },
 });
 

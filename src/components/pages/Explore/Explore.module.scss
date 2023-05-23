@@ -28,5 +28,10 @@
   & > .results {
     @extend %flexCol;
     gap: 0.5em;
+
+    & > div {
+      @extend %flexCol;
+      gap: 1em;
+    }
   }
 }

@@ -21,6 +21,7 @@ export const favoritesSlice = createSlice({
     // setFavorites(state, {payload}) {
     //     state.favorites = [...state.favorites, ...payload];
     // }
+    resetFavorites: () => favInitState
   },
 });
 

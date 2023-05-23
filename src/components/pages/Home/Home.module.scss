@@ -6,23 +6,22 @@
   width: 100%;
   height: 100%;
 
-  & > hr {
-    border-radius: 1em;
-    width: 25%;
-    border: none;
-    height: 0.25em;
-    background: linear-gradient(
-      120deg,
-      rgba(192, 121, 251, 1) 0%,
-      rgba(248, 168, 255, 1) 30%,
-      rgba(255, 255, 255, 0) 100%
-    );
-    margin-top: 0.5em;
-  }
-
   & > .header {
-    & > h3 {
-      font-size: 1.75em;
+    width: 100%;
+    @extend %flexCol;
+    gap: 1em;
+
+    & > h5 {
+      width: 75%;
+      font-size: 1.25em;
+      font-weight: 500;
+      color: rgba($colorTitle, 1);
+    }
+
+    & > .categories {
+      @extend %flexRow;
+      gap: 0.5em;
+      overflow: auto
     }
   }
 
@@ -34,6 +33,7 @@
     padding: 1em 0;
     gap: 0.5em;
 
+    
     & > .searchContainer {
       margin-bottom: 0.5em;
       & > input {
@@ -41,24 +41,7 @@
       }
     }
 
-    & > .categories {
-      @extend %flexCol;
-      & > .title {
-        & > p {
-          margin-bottom: 0.5em;
-          color: rgba($colorPara, 1);
-        }
-      }
-      .body {
-        @extend %flexRow;
-        gap: 0.5em;
-        overflow-x: auto;
 
-        & > .badge {
-          padding: 0.5em 1em;
-        }
-      }
-    }
 
     & > .title {
       & > p {

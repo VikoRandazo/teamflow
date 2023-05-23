@@ -23,6 +23,8 @@ import {
   FaUserSecret,
 } from "react-icons/fa";
 import { preferencesActions } from "../../../slices/preferences";
+import { databaseActions } from "../../../slices/database";
+import { favoritesActions } from "../../../slices/favorites";
 interface ProfileProps {}
 
 const Profile: FC<ProfileProps> = () => {
@@ -33,7 +35,6 @@ const Profile: FC<ProfileProps> = () => {
   const [navSwitch, setNavSwitch] = useState<string>(`General`);
   const [tags, setTags] = useState("");
   const [distanceBarValue, setDistanceBarValue] = useState<number>(20);
-
   const user = useSelector((state: StoreRootTypes) => state.auth.user);
   const userCategories = useSelector((state: StoreRootTypes) => state.preferences.categories);
 
@@ -42,10 +43,10 @@ const Profile: FC<ProfileProps> = () => {
   }, [userCategories]);
 
   const handleLogout = () => {
-    dispatch(authActions.setToken(""));
-    dispatch(authActions.isLoggedIn(false));
-    dispatch(authActions.setUser(null));
-    dispatch(authActions.setPurpose(null));
+    dispatch(authActions.resetAuth());
+    dispatch(databaseActions.resetDatabase());
+    dispatch(favoritesActions.resetFavorites());
+    dispatch(preferencesActions.resetPreferences());
     navigate("/authForm/login");
     logout();
   };
@@ -61,6 +62,11 @@ const Profile: FC<ProfileProps> = () => {
 
   const handleEdit = () => {
     setEditable((prevState) => !prevState);
+  };
+
+  const handleChangeEvent = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const userValue = e.currentTarget.value;
+
   };
 
   const handleNavSwitch = () => {
@@ -118,7 +124,8 @@ const Profile: FC<ProfileProps> = () => {
                   type="text"
                   placeholder="First Name"
                   disabled={editable ? false : true}
-                  value={user?.firstName}
+                  value={ editable? ""  : user?.firstName}
+                  onChange={handleChangeEvent}
                 />
               </div>
             </div>
@@ -134,6 +141,7 @@ const Profile: FC<ProfileProps> = () => {
                   placeholder="Last Name"
                   disabled={editable ? false : true}
                   value={user?.lastName}
+                  onChange={handleChangeEvent}
                 />
               </div>
             </div>
@@ -149,6 +157,7 @@ const Profile: FC<ProfileProps> = () => {
                   placeholder="Username"
                   disabled={editable ? false : true}
                   value={`@` + user?.username}
+                  onChange={handleChangeEvent}
                 />
               </div>
             </div>
@@ -164,13 +173,14 @@ const Profile: FC<ProfileProps> = () => {
                   placeholder="Password"
                   disabled={editable ? false : true}
                   value={user?.password}
+                  onChange={handleChangeEvent}
                 />
               </div>
             </div>
           </div>
         ) : (
           <div className={styles.preferences}>
-            {/* <div className={styles.preference} onClick={handeOpenPreference}>
+            <div className={styles.preference} onClick={handeOpenPreference}>
               <div className={styles.title}>
                 <FaRoute />
                 <p>Distance from you</p>
@@ -189,7 +199,7 @@ const Profile: FC<ProfileProps> = () => {
                   <p>{distanceBarValue} km</p>
                 </div>
               </div>
-            </div> */}
+            </div>
 
             <div className={styles.preference} onClick={handeOpenPreference}>
               <div className={styles.title}>
@@ -208,7 +218,7 @@ const Profile: FC<ProfileProps> = () => {
               </div>
             </div>
 
-            {/*   <div className={styles.preference} onClick={handeOpenPreference}>
+            <div className={styles.preference} onClick={handeOpenPreference}>
               <div className={styles.title}>
                 <FaMoneyBill />
                 <p>Salary requirements</p>
@@ -227,7 +237,7 @@ const Profile: FC<ProfileProps> = () => {
                 <FaAngleDown />
                 <p>Logout</p>
               </div>
-            </div> */}
+            </div>
           </div>
         )}
       </div>
