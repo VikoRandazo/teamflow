@@ -1,4 +1,4 @@
-import React, { FC, useEffect,  useState } from "react";
+import React, { FC, useEffect, useState, useRef } from "react";
 import styles from "./Profile.module.scss";
 import { logout } from "../../../auth/auth";
 import { useNavigate } from "react-router";
@@ -24,7 +24,8 @@ import {
 } from "react-icons/fa";
 import { preferencesActions } from "../../../slices/preferences";
 import { databaseActions } from "../../../slices/database";
-import { favoritesActions } from "../../../slices/favorites";
+import { userDataActions } from "../../../slices/userData";
+import { isDisabled } from "@testing-library/user-event/dist/utils";
 interface ProfileProps {}
 
 const Profile: FC<ProfileProps> = () => {
@@ -34,24 +35,29 @@ const Profile: FC<ProfileProps> = () => {
   const [editable, setEditable] = useState<boolean>(false);
   const [navSwitch, setNavSwitch] = useState<string>(`General`);
   const [distanceBarValue, setDistanceBarValue] = useState<number>(20);
-  const user = useSelector((state: StoreRootTypes) => state.auth.user);
-  const userCategories = useSelector((state: StoreRootTypes) => state.preferences.categories);
-  
-  
-  useEffect(() => {
-    console.log(userCategories);
-  }, [userCategories]);
+  const user: any = useSelector((state: StoreRootTypes) => state.auth.user);
+  const [userState, setUserState] = useState<User>({
+    firstName: user.firstName,
+    lastName: user.lastName,
+    password: user.password,
+    username: user.username,
+  });
 
+  const userCategory = useSelector((state: StoreRootTypes) => state.preferences.category);
+  const categories = useSelector((state: StoreRootTypes) => state.database.categories);
+
+  const [categoryState, setCategoryState] = useState(userCategory);
   const handleLogout = () => {
     dispatch(authActions.resetAuth());
     dispatch(databaseActions.resetDatabase());
-    dispatch(favoritesActions.resetFavorites());
+    dispatch(userDataActions.resetUserData());
     dispatch(preferencesActions.resetPreferences());
     navigate("/authForm/login");
     logout();
   };
 
   const handeOpenPreference = (e: React.MouseEvent<HTMLDivElement>) => {
+    e.stopPropagation();
     if (e.currentTarget.classList.contains(styles.open)) {
       e.stopPropagation();
       e.currentTarget.classList.remove(styles.open);
@@ -60,13 +66,35 @@ const Profile: FC<ProfileProps> = () => {
     }
   };
 
-  const handleEdit = () => {
+  const firstNameRef = useRef<HTMLInputElement>(null);
+  const lastNameRef = useRef<HTMLInputElement>(null);
+  const usernameRef = useRef<HTMLInputElement>(null);
+  const passwordRef = useRef<HTMLInputElement>(null);
+
+  const handleEdit = (e: React.MouseEvent<HTMLButtonElement>) => {
     setEditable((prevState) => !prevState);
+    if (editable === true) {
+      const target = e.currentTarget;
+
+      // lastNameRef;
+      // usernameRef;
+      // passwordRef;
+    }
   };
-
   const handleChangeEvent = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const userValue = e.currentTarget.value;
-
+    const target = e.currentTarget;
+    if (!target.disabled) {
+      if (firstNameRef.current !== null) {
+        setUserState((prevState) => {
+          const updatedState = {
+            ...prevState,
+            [target.id]: target.value,
+          };
+          dispatch(authActions.setUser(updatedState));
+          return updatedState;
+        });
+      }
+    }
   };
 
   const handleNavSwitch = () => {
@@ -79,6 +107,28 @@ const Profile: FC<ProfileProps> = () => {
     setDistanceBarValue(Number(e.target.value));
     dispatch(preferencesActions.setDistance(distanceBarValue));
   };
+
+  const [activeTarget, setActiveTarget] = useState<HTMLSpanElement>();
+  const [prevTarget, setPrevTarget] = useState<HTMLSpanElement>();
+
+  const handleCategoryChange = (e: React.MouseEvent<HTMLSpanElement>) => {
+    const target = e.currentTarget;
+    e.stopPropagation();
+    setCategoryState(e.currentTarget.innerText);
+    dispatch(preferencesActions.setCategory(e.currentTarget.innerText));
+
+    if (activeTarget && activeTarget.classList.contains(styles.active)) {
+      activeTarget.classList.remove(styles.active);
+      setPrevTarget(activeTarget);
+    }
+
+    target.classList.add(styles.active);
+    setActiveTarget(target);
+    setCategoryState(target.innerText);
+  };
+
+  const handleSalaryAssignment = () => {};
+
   return (
     <div className={styles.Profile}>
       <div className={styles.header}>
@@ -123,8 +173,9 @@ const Profile: FC<ProfileProps> = () => {
                   id="firstName"
                   type="text"
                   placeholder="First Name"
-                  disabled={editable ? false : true}
-                  value={ editable? ""  : user?.firstName}
+                  disabled={!editable}
+                  value={editable ? userState.firstName : user.firstName}
+                  ref={firstNameRef}
                   onChange={handleChangeEvent}
                 />
               </div>
@@ -140,7 +191,7 @@ const Profile: FC<ProfileProps> = () => {
                   type="text"
                   placeholder="Last Name"
                   disabled={editable ? false : true}
-                  value={user?.lastName}
+                  value={editable ? userState.lastName : user.lastName}
                   onChange={handleChangeEvent}
                 />
               </div>
@@ -155,9 +206,8 @@ const Profile: FC<ProfileProps> = () => {
                   className={editable ? "" : styles.active}
                   type="text"
                   placeholder="Username"
-                  disabled={editable ? false : true}
-                  value={`@` + user?.username}
-                  onChange={handleChangeEvent}
+                  disabled={true}
+                  value={`@` + user.username}
                 />
               </div>
             </div>
@@ -171,9 +221,8 @@ const Profile: FC<ProfileProps> = () => {
                   id="password"
                   type="password"
                   placeholder="Password"
-                  disabled={editable ? false : true}
-                  value={user?.password}
-                  onChange={handleChangeEvent}
+                  disabled={true}
+                  value={user.password}
                 />
               </div>
             </div>
@@ -187,6 +236,7 @@ const Profile: FC<ProfileProps> = () => {
                 <FaAngleDown />
               </div>
               <div className={styles.body}>
+                <h5>how far would you go to work?</h5>
                 <div className={styles.displayDistance}>
                   <input
                     onChange={handleDistanceBarValue}
@@ -209,8 +259,8 @@ const Profile: FC<ProfileProps> = () => {
               </div>
               <div className={styles.body}>
                 <div className={styles.categoriesContainer}>
-                  {userCategories.map((category) => (
-                    <span key={category} className={styles.badge}>
+                  {categories.map((category) => (
+                    <span key={category} className={styles.badge} onClick={handleCategoryChange}>
                       {category}
                     </span>
                   ))}
