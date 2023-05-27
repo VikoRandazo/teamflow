@@ -20,7 +20,7 @@ const RegisterStep3: FC<RegisterStep3Props> = () => {
 
   const [data, setData] = useState<(ApplicantProps | JobOfferProps | FreelancerProps)[]>();
   const [purpose, setPurpose] = useState<any>(`jobOffers`);
-  const [userCategories, setUserCategories] = useState<string[]>([]);
+  const [userCategory, setUserCategory] = useState<string>("");
   const [categories, setCategories] = useState<string[]>([
     `Accounting`,
     `Information Technology`,
@@ -35,22 +35,28 @@ const RegisterStep3: FC<RegisterStep3Props> = () => {
     `Hi Tech`,
   ]);
 
+  const [activeTarget, setActiveTarget] = useState<HTMLDivElement>();
+  const [prevTarget, setPrevTarget] = useState<HTMLDivElement>();
+
   const handleActive = (e: React.MouseEvent<HTMLDivElement>) => {
+    e.stopPropagation();
     const target = e.currentTarget;
-    let categoryName = target.innerText;
-    if (!target.classList.contains(styles.active)) {
-      if (userCategories.includes(categoryName)) {
-        return;
-      }
-      target.classList.add(styles.active);
-      setUserCategories((prevState) => [...prevState, categoryName]);
-      dispatch(preferencesActions.setCategories(userCategories));
-    } else if (target.classList.contains(styles.active)) {
-      target.classList.remove(styles.active);
-      setUserCategories((prevState) => prevState.filter((category) => category !== categoryName));
-      dispatch(preferencesActions.setCategories(userCategories));
+    
+    if (activeTarget && activeTarget.classList.contains(styles.active)) {
+      activeTarget.classList.remove(styles.active);
+      setPrevTarget(activeTarget)
+      
     }
+    
+    target.classList.add(styles.active);
+    setActiveTarget(target);
+    setUserCategory(target.innerText)
   };
+
+  useEffect(() => {
+    dispatch(databaseActions.setCategories(categories))
+    dispatch(preferencesActions.setCategory(userCategory)) 
+  }); 
 
   const handleRegister = () => {
     dispatch(authActions.isLoggedIn(true));
@@ -58,8 +64,8 @@ const RegisterStep3: FC<RegisterStep3Props> = () => {
   };
 
   const handleGoBack = () => {
-    setUserCategories([]);
-    dispatch(preferencesActions.setCategories(userCategories));
+    setUserCategory("");
+    dispatch(preferencesActions.setCategory(userCategory));
 
     navigate("/authForm/register/step2");
 
@@ -82,7 +88,7 @@ const RegisterStep3: FC<RegisterStep3Props> = () => {
             <div className={styles.categories} onClick={handleActive}>
             {categories.map((category) => {
             return (
-              <span onClick={handleActive} className={styles.badge}>
+              <span key={category} onClick={handleActive} className={styles.badge}>
                 {category}
               </span>
             );

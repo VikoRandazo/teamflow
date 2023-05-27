@@ -5,12 +5,12 @@ import { useDispatch } from "react-redux";
 import { User } from "../../../models/User";
 import { authSlice } from "../../../slices/auth";
 import { register } from "../../../auth/auth";
-import {useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 interface RegisterProps {}
 
 const Register: FC<RegisterProps> = () => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const [credentials, setCredentials] = useState<User>({
@@ -37,14 +37,13 @@ const Register: FC<RegisterProps> = () => {
     if (token) {
       dispatch(authSlice.actions.setToken(token));
       dispatch(authSlice.actions.setUser(credentials));
-      navigate("/authForm/register/step2")
+      navigate("/authForm/register/step2");
     }
   };
 
-  const handleNavigate = (e:React.MouseEvent<HTMLButtonElement>) => {
-    navigate("/authForm/login")
-    }
-  
+  const handleNavigate = (e: React.MouseEvent<HTMLButtonElement>) => {
+    navigate("/authForm/login");
+  };
 
   return (
     <div className={styles.Register}>
@@ -105,7 +104,9 @@ const Register: FC<RegisterProps> = () => {
           </label>
         </div>
         <div className={styles.CTA}>
-          <button className={styles.primary} onClick={handleRegister}>Continue</button>
+          <button className={styles.primary} onClick={handleRegister}>
+            Continue
+          </button>
         </div>
       </div>
       <div className={styles.footer}>

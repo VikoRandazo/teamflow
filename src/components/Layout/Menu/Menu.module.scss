@@ -48,10 +48,11 @@
           height: 100%;
           
           &.add {
-            // background-color: rgba($colorTitle, 100%);
-            width: 3em;
-            height: 3em;
-            border-radius: 0.5em;
+            transform: translateY(-50%);
+            background-color: rgba($colorAccent, 100%);
+            width: 3.5em;
+            height: 3.5em;
+            border-radius: 50em;
             
             & > svg {
               color: rgba($colorTitle, 1);

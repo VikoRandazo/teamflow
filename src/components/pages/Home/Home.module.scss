@@ -9,6 +9,7 @@
 
   & > .header {
     width: 100%;
+    height: auto;
     @extend %flexCol;
     gap: 1em;
 
@@ -22,7 +23,6 @@
     & > .categories {
       @extend %flexRow;
       gap: 0.5em;
-      overflow: auto;
     }
   }
 
@@ -34,20 +34,71 @@
     padding: 1em 0;
     gap: 0.5em;
 
-    & > .searchContainer {
-      margin-bottom: 0.5em;
-      & > input {
+    & > .search {
+      width: 100%;
+      margin-bottom: 1em;
+    }
+
+    & > .averageSalary {
+      width: 100%;
+
+      & > .container {
+        @extend %flexCol;
         width: 100%;
+        justify-content: center;
+        margin-top: -0.75em;
+        margin-bottom: 1em;
+
+        & > p {
+          color: rgba($colorPara, 0.8);
+          @extend %flexRow;
+          gap: 0.75em;
+          align-items: center;
+          font-size: 1em;
+
+          & > span {
+            gap: 0.75em;
+            font-weight: 400;
+            @extend %flexRow;
+          }
+          & > svg {
+            font-size: 0.75em;
+            color: $colorSecondary;
+          }
+        }
       }
     }
 
     & > .forYou {
+      min-height: 35vh;
+      width: 100%;
+
       & > .title {
+        height: 10%;
         & > h5 {
           font-size: 1.125em;
           font-weight: 400;
-          margin: 0;
+          margin-bottom: 0.5em;
         }
+      }
+
+      & > .results {
+        width: 100%;
+        height: 100%;
+        @extend %flexRow;
+
+        & > .resultsContainer {
+          @extend %flexRow;
+          gap: 1em;
+          height: 35vh;
+          width: 100%;
+          overflow-x: auto;
+          overflow-y: hidden;
+        }
+      }
+
+      & > .body {
+        height: 80%;
       }
     }
 

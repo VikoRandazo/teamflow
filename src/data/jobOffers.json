@@ -7,7 +7,7 @@
     "city": "Chicago",
     "category": "Accounting",
     "description": "We are looking for an Accountant to manage all financial transactions...",
-    "salary": "$70,000",
+    "salary": "70000",
     "experience": "3+ years"
   },
   {
@@ -18,7 +18,7 @@
     "city": "San Francisco",
     "category": "Information Technology",
     "description": "We are seeking a skilled Software Engineer to join our IT team...",
-    "salary": "$120,000",
+    "salary": "120000",
     "experience": "3-5 years"
   },
   {
@@ -29,7 +29,7 @@
     "city": "New York",
     "category": "Healthcare",
     "description": "We are seeking a Registered Nurse to provide excellent healthcare services...",
-    "salary": "$75,000",
+    "salary": "75000",
     "experience": "2-4 years"
   },
   {
@@ -40,7 +40,7 @@
     "city": "Los Angeles",
     "category": "Education",
     "description": "We are hiring an Elementary School Teacher to deliver high quality education...",
-    "salary": "$60,000",
+    "salary": "60000",
     "experience": "1-3 years"
   },
   {
@@ -51,7 +51,7 @@
     "city": "Dallas",
     "category": "Sales",
     "description": "We are seeking a motivated Sales Representative to drive sales and build client relationships...",
-    "salary": "$70,000",
+    "salary": "70000",
     "experience": "2-5 years"
   },
   {
@@ -62,7 +62,7 @@
     "city": "Seattle",
     "category": "Engineering",
     "description": "We are looking for a Mechanical Engineer to design and develop mechanical systems...",
-    "salary": "$90,000",
+    "salary": "90000",
     "experience": "3-5 years"
   },
   {
@@ -73,7 +73,7 @@
     "city": "Toronto",
     "category": "Marketing",
     "description": "We are seeking a Marketing Specialist to develop and execute marketing campaigns...",
-    "salary": "$80,000",
+    "salary": "80000",
     "experience": "2-4 years"
   },
   {
@@ -84,7 +84,7 @@
     "city": "New York",
     "category": "Finance",
     "description": "We are hiring a Financial Analyst to analyze financial data and provide insights...",
-    "salary": "$85,000",
+    "salary": "85000",
     "experience": "3-5 years"
   },
   {
@@ -95,7 +95,7 @@
     "city": "Chicago",
     "category": "Customer Service",
     "description": "We are looking for a Customer Service Representative to assist customers and resolve issues...",
-    "salary": "$45,000",
+    "salary": "45000",
     "experience": "0-2 years"
   },
   {
@@ -106,7 +106,7 @@
     "city": "San Francisco",
     "category": "Human Resources",
     "description": "We are seeking an experienced HR Manager to oversee all aspects of human resources...",
-    "salary": "$100,000",
+    "salary": "100000",
     "experience": "5+ years"
   },
   {
@@ -117,7 +117,7 @@
     "city": "Berlin",
     "category": "Hi Tech",
     "description": "Join our team as an AI Engineer and contribute to the development of cutting-edge AI solutions...",
-    "salary": "$120,000",
+    "salary": "120000",
     "experience": "3-5 years"
   },
   {
@@ -128,7 +128,7 @@
     "city": "Boston",
     "category": "Accounting",
     "description": "We are looking for a Financial Controller to manage our company's financial health...",
-    "salary": "$90,000",
+    "salary": "90000",
     "experience": "4+ years"
   },
   {
@@ -139,7 +139,7 @@
     "city": "Austin",
     "category": "Information Technology",
     "description": "We are seeking a Cloud Architect to manage our company's cloud computing strategy...",
-    "salary": "$130,000",
+    "salary": "130000",
     "experience": "4-6 years"
   },
   {
@@ -150,7 +150,7 @@
     "city": "Houston",
     "category": "Healthcare",
     "description": "We are seeking a Physician Assistant to support physicians in providing excellent healthcare services...",
-    "salary": "$85,000",
+    "salary": "85000",
     "experience": "3-5 years"
   },
   {
@@ -161,7 +161,7 @@
     "city": "Phoenix",
     "category": "Education",
     "description": "We are hiring a High School Principal to create a learning environment for students...",
-    "salary": "$95,000",
+    "salary": "95000",
     "experience": "5+ years"
   },
   {
@@ -172,7 +172,7 @@
     "city": "Philadelphia",
     "category": "Sales",
     "description": "We are seeking a Sales Manager to oversee our sales department and coordinate sales activities...",
-    "salary": "$100,000",
+    "salary": "100000",
     "experience": "5+ years"
   },
   {
@@ -183,7 +183,7 @@
     "city": "San Antonio",
     "category": "Engineering",
     "description": "We are looking for a Civil Engineer to design, plan and supervise construction of infrastructure projects...",
-    "salary": "$85,000",
+    "salary": "85000",
     "experience": "3-5 years"
   },
   {
@@ -194,7 +194,7 @@
     "city": "San Diego",
     "category": "Marketing",
     "description": "We are seeking a Digital Marketing Specialist to develop and manage marketing campaigns...",
-    "salary": "$75,000",
+    "salary": "75000",
     "experience": "2-4 years"
   },
   {
@@ -205,7 +205,7 @@
     "city": "Dallas",
     "category": "Finance",
     "description": "We are hiring an Investment Analyst to analyze investment data and make investment suggestions...",
-    "salary": "$90,000",
+    "salary": "90000",
     "experience": "3-5 years"
   },
   {
@@ -216,7 +216,7 @@
     "city": "San Jose",
     "category": "Customer Service",
     "description": "We are looking for a Customer Success Manager to maintain strong relationships with our customers...",
-    "salary": "$70,000",
+    "salary": "70000",
     "experience": "2-4 years"
   },
   {
@@ -227,7 +227,7 @@
     "city": "Austin",
     "category": "Human Resources",
     "description": "We are seeking an HR Business Partner to align our HR initiatives and functions with business objectives...",
-    "salary": "$85,000",
+    "salary": "85000",
     "experience": "3-5 years"
   },
   {
@@ -238,7 +238,117 @@
     "city": "Jacksonville",
     "category": "Hi Tech",
     "description": "Join our team as a Data Scientist and contribute to the development of innovative data-driven solutions...",
-    "salary": "$110,000",
+    "salary": "110000",
+    "experience": "3-5 years"
+  },
+  {
+    "id": 28023,
+    "position": "Graphic Designer",
+    "company": "LMN Creative Agency",
+    "location": "Seattle",
+    "city": "Seattle",
+    "category": "Design",
+    "description": "We are seeking a talented Graphic Designer to create visually appealing designs...",
+    "salary": "55000",
+    "experience": "1-3 years"
+  },
+  {
+    "id": 28024,
+    "position": "Software Developer",
+    "company": "XYZ Software Solutions",
+    "location": "Chicago",
+    "city": "Chicago",
+    "category": "Information Technology",
+    "description": "We are looking for a skilled Software Developer to design and develop software applications...",
+    "salary": "95000",
+    "experience": "3-5 years"
+  },
+  {
+    "id": 28025,
+    "position": "Nurse Practitioner",
+    "company": "PQR Medical Group",
+    "location": "New York",
+    "city": "New York",
+    "category": "Healthcare",
+    "description": "We are seeking a Nurse Practitioner to provide primary and specialty healthcare services...",
+    "salary": "105000",
+    "experience": "3-5 years"
+  },
+  {
+    "id": 28026,
+    "position": "English Teacher",
+    "company": "ABC Language School",
+    "location": "Los Angeles",
+    "city": "Los Angeles",
+    "category": "Education",
+    "description": "We are hiring an English Teacher to teach English as a second language...",
+    "salary": "50000",
+    "experience": "1-3 years"
+  },
+  {
+    "id": 28027,
+    "position": "Business Development Manager",
+    "company": "EFG Business Solutions",
+    "location": "Dallas",
+    "city": "Dallas",
+    "category": "Sales",
+    "description": "We are seeking a Business Development Manager to identify new business opportunities...",
+    "salary": "90000",
+    "experience": "3-5 years"
+  },
+  {
+    "id": 28028,
+    "position": "Network Administrator",
+    "company": "XYZ Networking Solutions",
+    "location": "San Francisco",
+    "city": "San Francisco",
+    "category": "Information Technology",
+    "description": "We are seeking a Network Administrator to manage and maintain computer networks...",
+    "salary": "80000",
+    "experience": "2-4 years"
+  },
+  {
+    "id": 28029,
+    "position": "Dental Hygienist",
+    "company": "PQR Dental Clinic",
+    "location": "New York",
+    "city": "New York",
+    "category": "Healthcare",
+    "description": "We are hiring a Dental Hygienist to clean and examine patients' teeth...",
+    "salary": "60000",
+    "experience": "1-3 years"
+  },
+  {
+    "id": 28030,
+    "position": "Art Teacher",
+    "company": "LMN Art Academy",
+    "location": "Los Angeles",
+    "city": "Los Angeles",
+    "category": "Education",
+    "description": "We are seeking an Art Teacher to teach various art techniques and forms...",
+    "salary": "55000",
+    "experience": "1-3 years"
+  },
+  {
+    "id": 28031,
+    "position": "Marketing Manager",
+    "company": "ABC Marketing Solutions",
+    "location": "Chicago",
+    "city": "Chicago",
+    "category": "Marketing",
+    "description": "We are looking for a Marketing Manager to develop and implement marketing strategies...",
+    "salary": "100000",
+    "experience": "5+ years"
+  },
+  {
+    "id": 28032,
+    "position": "Financial Planner",
+    "company": "XYZ Financial Advisors",
+    "location": "San Francisco",
+    "city": "San Francisco",
+    "category": "Finance",
+    "description": "We are seeking a Financial Planner to provide comprehensive financial planning services...",
+    "salary": "95000",
     "experience": "3-5 years"
   }
 ]

@@ -1,11 +1,9 @@
 import React, { FC, useState } from "react";
 import styles from "./Favorites.module.scss";
 import { FaMapMarkerAlt, FaStar } from "react-icons/fa";
-import LikeButton from "./LikeButton/LikeButton";
 import Applicant, { ApplicantProps } from "../../jobMarket/Applicant/Applicant";
 import { FreelancerProps } from "../../jobMarket/Freelancer/Freelancer";
 import { JobOfferProps } from "../../jobMarket/JobOffer/JobOffer";
-import Card from "../../Cards/CardRow/CardRow";
 import Favorite from "./Favorite/Favorite";
 
 interface FavoritesProps {

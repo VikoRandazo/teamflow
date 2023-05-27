@@ -6,70 +6,55 @@
   @extend %flexCol;
   gap: 0.5em;
   width: 100%;
-  max-height: 30vh;
-  overflow: hidden;
+  height: 100%;
 
   & > .jobOffer {
     width: 100%;
-    height: 100%;
+    min-height: 100%;
+    max-height: 100%;
 
     & > .jobOfferHeader {
       @extend %flexRow;
-      justify-content: space-between;
       align-items: center;
-      white-space: nowrap;
+      height: 15%;
 
       & > span {
-        color: rgba($colorPara, 0.5);
-      }
-
-      & > span > svg {
-        color: #ffd700;
-      }
-
-      & > span > .heartSVG {
-        color: rgba($colorPrimary, 0.5);
-        margin-left: 0.5em;
-      }
-
-      .badge {
-        color: rgba($colorAccent, 1);
-        border: 1px solid rgba($colorAccent, 0.4);
-        overflow-x: hidden;
-        text-overflow: ellipsis;
+        color: $colorPara;
+        font-size: 0.875em
       }
     }
 
-    .jobOfferBody {
+    & > .jobOfferBody {
       @extend %flexCol;
-      gap: 0.25em;
-      
-      & > h5 {
-        color: $colorTitle;
-      }
-      
-      .jobOfferAddress {
-        @extend %flexRow;
-        gap: 0.25em;
-        color: rgba($colorPara, 0.7);
-        font-size: 0.875em;
-      }
-      
+      height: 85%;
+      overflow: hidden;
+      gap: 0.5em;
+
       & > .description {
-        color: rgba($colorPara, 1);
-        width: 100%;
+        max-width: 100%;
+        max-height: 60%;
+        line-height: 1.4;
+        font-size: 1em;
+        color: $colorPara;
+        text-overflow: ellipsis;
+        overflow-wrap: break-word;
         overflow: hidden;
-        width: 100%;
-        & > p {
-          text-overflow: ellipsis;
-
-        }
+        white-space: pre-wrap;
+        margin-bottom: auto;
       }
 
-      .downloadCV {
+      & > .buttons {
         @extend %flexRow;
-        justify-content: space-between;
-        font-size: 0.875em;
+        gap: 0.5em;
+        max-height: 25%;
+
+        & > button:nth-of-type(1) {
+          width: 70%;
+        }
+
+        & > button:nth-of-type(2) {
+          width: 30%;
+        }
       }
     }
   }

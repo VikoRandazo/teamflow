@@ -4,7 +4,6 @@ import { FaHeart, FaMapMarkerAlt, FaStar } from "react-icons/fa";
 import jwtDecode from "jwt-decode";
 import { useSelector } from "react-redux";
 import { StoreRootTypes } from "../../../store";
-import LikeButton from "../../pages/Favorites/LikeButton/LikeButton";
 
 export interface ApplicantProps {
   id: number;
@@ -50,9 +49,6 @@ const Applicant: FC<ApplicantProps> = ({ id, positionAppliedFor, name, contactIn
           <span className={styles.applicantRate}>
             <FaStar />
             <span>{"4.5"}</span>
-            <span className={styles.heartSVG} >
-              <LikeButton favoriteObject={applicantObject}/>
-            </span>
           </span>
         </div>
         <div className={styles.applicantBody}>

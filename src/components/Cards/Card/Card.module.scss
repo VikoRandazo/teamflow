@@ -5,12 +5,13 @@
   padding: 1em;
   border-radius: 1em;
   @extend %flexRow;
-  height: 30vh;
   background-color: $colorBackgroundModal;
   transition: all 0.2s ease;
+  max-height: 100%;
+  width: auto;
+  aspect-ratio: 1 / 1;
 
-  &:active {
-    background-color: $colorActive;
-    scale: 0.98;
+  & > *div {
+    width: 100%;
   }
 }

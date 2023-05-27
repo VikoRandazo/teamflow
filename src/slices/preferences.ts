@@ -2,13 +2,13 @@ import { createSlice } from "@reduxjs/toolkit";
 
 export interface preferencesTypes {
   distance: number;
-  categories: string[];
+  category: string;
   salary: number;
-  tags: [];
+  tags: string[];
 }
 export const preferencesInitState = {
   distance: 20,
-  categories: [],
+  category: "",
   salary: 6000,
   tags: [],
 };
@@ -20,8 +20,8 @@ export const preferenceSlice = createSlice({
     setDistance(state, { payload }) {
       state.distance = payload;
     },
-    setCategories: (state, { payload }) => {
-      state.categories = payload;
+    setCategory: (state, { payload }) => {
+      state.category = payload;
     },
     setSalary(state, { payload }) {},
     setTags(state, { payload }) {},

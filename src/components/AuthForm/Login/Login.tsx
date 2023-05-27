@@ -4,7 +4,7 @@ import logo from "../../../styles/assets/Logo horizontal.svg";
 import { useDispatch } from "react-redux";
 import { login } from "../../../auth/auth";
 import { User } from "../../../models/User";
-import { authSlice } from "../../../slices/auth";
+import { authActions, authSlice } from "../../../slices/auth";
 import { useNavigate } from "react-router-dom";
 
 interface LoginProps {}
@@ -32,12 +32,14 @@ const Login: FC<LoginProps> = () => {
 
   const handleLogin = async (e: React.MouseEvent<HTMLButtonElement>) => {
     const token = await login(credentials);
-    const savedToken = localStorage.getItem("jwt")
-    if (savedToken || token) {
-      console.log(token);
-      dispatch(authSlice.actions.setToken(token));
-      dispatch(authSlice.actions.setUser(credentials.username));
+    if (token) {
+      dispatch(authActions.setToken(token));
+      dispatch(authActions.setUser(credentials.username));
+      dispatch(authActions.isLoggedIn(true))
       navigate("/home");
+    } else {
+      
+      return
     }
   };
 

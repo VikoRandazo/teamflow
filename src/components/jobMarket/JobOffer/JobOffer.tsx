@@ -30,30 +30,27 @@ const JobOffer: FC<JobOfferProps> = ({id,
   const token = useSelector((state: StoreRootTypes) => state.auth.setToken);
   const user: any = jwtDecode(token);
 
+
+  const handleApplyPosition = (e:React.MouseEvent<HTMLButtonElement>) => {
+    const target = e.currentTarget
+    
+    
+  }
   return (
     <div className={styles.Job}>
       <div key={id} className={styles.jobOffer}>
         <div className={styles.jobOfferHeader}>
-          <span className={styles.badge}>{company}</span>
-          {/* <span className={styles.jobOfferRate}>
-            <FaStar />
-            <span>{"4.5"}</span>
-            <span className={styles.heartSVG}>
-              <FaHeart />
-            </span>
-          </span> */}
+          <span>{company}</span>
         </div>
         <div className={styles.jobOfferBody}>
           <h5>{position}</h5>
-          <div className={styles.jobOfferAddress}>
-            <span>
-              <FaMapMarkerAlt />
-            </span>
-            <span>{city}</span>
-          </div>
-          <div className={styles.description}>
+            <div className={styles.description}>
             <p>{description}</p>
           </div>
+      <div className={styles.buttons}>
+      <button className={styles.secondary} onClick={handleApplyPosition}>Apply position</button>
+      <button className={styles.secondary}><FaHeart/></button>
+      </div>
         </div>
       </div>
     </div>

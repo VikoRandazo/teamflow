@@ -40,6 +40,7 @@ input:is([type="text"], [type="password"]) {
   outline: 6px solid rgba(transparent, 100%);
   transition: all 0.2s ease;
   outline-offset: 0px;
+  width: 100%;
 
   &::placeholder {
     opacity: 0.5;
@@ -65,7 +66,9 @@ img {
 }
 
 button {
-  transition: all 0.1s ease;
+  @extend %flexRow;
+  align-items: center;
+  justify-content: center;
 }
 
 .primary {
@@ -77,8 +80,7 @@ button {
   color: #fff;
 
   &:is(:active) {
-    outline: 0.125em solid rgba($colorPrimary, 100%);
-    outline-offset: 0.25em;
+    scale: 0.97;
   }
 }
 
@@ -91,8 +93,7 @@ button {
   border: none;
 
   &:is(:active) {
-    outline: 0.125em solid rgba($colorPrimary, 100%);
-    outline-offset: 0.25em;
+    scale: 0.97;
   }
 }
 
@@ -147,13 +148,16 @@ label {
 }
 
 .badge {
-  padding: 0.5em 2em;
-  background-color: rgba($colorBackgroundModal, 1);
-  color: rgba($colorTitle, 100%);
+  padding: 0.75em 0.75em;
+  background-color: rgba($colorActive, 1);
+  color: rgba($colorSecondary, 100%);
   border-radius: 0.5em;
   font-size: 0.75em;
-  min-width: max-content;
-  height: fit-content;
+  white-space: pre;
+  flex-basis: 10%;
+  flex-grow: 1;
+  border: 1px solid $colorSecondary;
+
   &.active {
     background-color: rgba($colorSecondary, 100%);
     color: rgba($colorTitle, 1);
@@ -193,7 +197,7 @@ a {
 
 .preference {
   transition: all 0.1s ease;
-  background-color: rgba($colorBackgroundModal, 1);
+  background-color: rgba($colorActive, 1);
   padding: 1em;
   border-radius: 0.75em;
   width: 100%;
@@ -214,17 +218,42 @@ a {
     & > .body {
       @extend %flexCol;
       align-items: center;
-      gap: 0.5em;
+      justify-content: center;
       height: 75%;
       width: 100%;
       overflow: hidden;
+
+      & > h5 {
+        background-color: rgba($colorBackgroundPage, 100%);
+        padding: 0.75em;
+        text-align: center;
+        border-radius: 0.5em;
+        width: 100%;
+      }
 
       // distanceBar
       & > .displayDistance {
         @extend %flexRow;
         width: 100%;
+        height: 100%;
         align-items: center;
-        gap: 2em;
+        justify-content: center;
+        gap: 1em;
+        & > input[type="range"] {
+          width: 70%;
+        }
+
+        & > p {
+          @extend %flexRow;
+          align-items: center;
+          justify-content: center;
+          background-color: rgba($colorBackgroundPage, 100%);
+          padding: 0.75em;
+          border-radius: 0.5em;
+          color: rgba($colorTitle, 1);
+          font-size: 1em;
+          width: 30%;
+        }
       }
 
       & > .categoriesContainer {
@@ -236,10 +265,6 @@ a {
         flex-wrap: wrap;
         overflow: auto;
 
-        & > .badge {
-          height: 3em;
-          margin: 0;
-        }
       }
     }
 
